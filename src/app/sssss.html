@@ -1,0 +1,457 @@
+
+            <div class="container rounded mt-5 bg-white p-md-5">
+    
+              
+              <div class="container">
+                  <div class="form-group">
+                      <div class="h2 font-weight-bold">Liste des contacts</div>
+              
+                    </div>
+                    <div class="container" >
+                        
+                      <div class="container" >
+                        
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Chercher..." (input)="filterItem($event.target.value)"  />
+                          </div>
+                        </div>
+                    </div>
+              
+                    <div class="table-responsive">
+              
+                  <table class="table ">
+                      <div *ngIf="!profs" class="text-center">
+                          <div class="spinner-border text-secondary" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      <thead>
+                          <tr>
+                              <th scope="col" >Nom et prénom </th>
+                              <th scope="col">Adresse</th>
+                              <th scope="col">E-mail</th>
+                              <th scope="col">Télèphone</th>
+                              <th scope="col">Etat Formulaire</th>
+              
+                          </tr>
+                      </thead>
+                  
+                      <tr *ngFor="let prof of profs ;index as i">
+                      
+                              <td class="pt-3">{{prof.doctors.name}} {{prof.doctors.lastname}}</td>
+                              <td class="pt-3">{{prof.doctors.adresse}}</td>
+                              <td class="pt-3">{{prof.doctors.email}}</td>
+                              <td class="pt-3" >{{prof.doctors.tel}}  </td>
+                              <td><i  class='fas fa-file-medical' class="fa-sharp fa-solid fa-check-to-slot" (click)="GetForms(prof.doctors._id)" aria-hidden="true" data-toggle="modal"   style="padding-right: 10px;cursor: pointer;" data-target="#exampleModal"></i>
+                                  <i  class='fas fa-file-medical' (click)="GetForms(prof.doctors._id)" aria-hidden="true" data-toggle="modal" style="cursor: pointer;" data-target="#exampleModalCompleted"></i>
+                              </td>
+                        
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                         
+                          <div class="modal-body">
+                              
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                              <h5 class="modal-title" id="exampleModalLabel">Formulaires affecter par {{prof.doctors.lastname}}</h5>
+              
+                              <div class="container rounded mt-2 bg-white p-md-2">
+                                  <div class="table-responsive">
+                                      <table class="table ">
+                                          <thead>
+                                              <tr>
+                                                  <th scope="col">Title</th>
+                                                  <th scope="col">Description</th>
+                                   
+                                  
+                                              </tr>
+                                          </thead>
+                                          
+                                          <tbody *ngFor="let form of forms ;index as i" style="cursor: pointer;">
+                                              <tr>
+                                                  <td  data-dismiss="modal" (click)="openFormDetails(form.form._id,prof)" class="pt-3">{{form.form.title}}</td>
+                                                  <td class="pt-3">{{form.form.description}}</td>
+              
+                                                 
+                                              </tr>
+                                  
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+              
+                          </div>
+                       
+                      </div>
+                  </div>
+              </div>
+              <!-- Modal Completed-->
+              <div class="modal fade" id="exampleModalCompleted" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          
+                          <div class="modal-body">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              <h5 class="modal-title" id="exampleModalLabel">Formulaires remplis par {{prof.doctors.lastname}}</h5>
+              
+                              <div class="container rounded mt-2 bg-white p-md-2">
+                                  <div class="table-responsive">
+                                      <table class="table ">
+                                          <thead>
+                                              <tr>
+                                                  <th scope="col">Title</th>
+                                                  <th scope="col">Description</th>
+                                            
+                                  
+                                              </tr>
+                                          </thead>
+                                          <tbody (click)="previewForm(form)"  *ngFor="let form of formsCompleted ;index as i" style="cursor: pointer;">
+                                              <tr>
+                                                  <td  data-dismiss="modal"  class="pt-3">{{form.form.title}}</td>
+                                                  <td class="pt-3">{{form.form.description}}</td>
+                                                
+                                                 
+                                              </tr>
+                                  
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div>
+              
+                          </div>
+                          <div class="modal-footer">
+                       
+                             
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </tr>
+                  </table>
+              </div>
+              
+              </div>
+              </div>
+              
+              <div  *ngIf="profs==0" class="text-center mt-5" style="width: 100%;height: 100%;padding-bottom: 15%;">   
+                  <h1 class="header-title" style="color: transparent;padding-bottom: 15%;font-size: 0px;">A</h1>
+                  <h1 class="header-title" style="color: red;padding-bottom: 15%;">AUCUN CONTACT  </h1>
+                
+                </div>
+              
+
+
+                <div *ngIf="section .type == 'Grille de cases à cocher 2'" style="width: 100%;"
+                class="col-lg-12 col-sm-12 w-100">
+                <table class="table table-borderless">
+                  <thead>
+         
+                  </thead>
+                  <tbody>
+                 <!--    <tr *ngFor="let question of section.questions[q].grille.options;let o = index">
+                      <th scope="row">{{question.title}}</th>
+                      <td *ngFor="let question of section.questions[q].grille.scoreS;let k = index">
+                        {{o}}{{k}}
+                        <mat-checkbox class=" inp col-md-7 col-lg-7 col-sm-9 col-xs-9 col-9  " (change)="radioChecked(question.score,question,$event,s ,'question'+o +','+s+','+q,'Q '+'('+ s +',' + q+')');
+                        getDataGrilledecasescocher(section.questions[q],$event,q,o,k,s,question)">
+                        </mat-checkbox>
+                      </td>
+
+                    </tr> -->
+                   <tr *ngFor="let questionq of tabRep.responses[0].optionsSaint.options;let m = index">
+                    <th scope="row">
+               <br>
+               <br>
+               <br>
+                    hh</th>
+                    <mat-radio-group 
+                    aria-label="Select an option"
+                     >
+ 
+                      <td class="col-lg-1" *ngFor="let question of tabRep.responses[0].optionsSaint.scoreS;let k = index" style="padding-bottom: 20px;">
+                        {{tabRep.responses[0].scoreOptioncm2[m][k]}}
+                        <mat-radio-button class="m-2 w-100" style="width: 100%;" disabled [value]="tabRep.responses[0].scoreOptioncm2[m][k]"  [checked]="tabRep.responses[0].scoreOptioncm2[m][k]">
+                     
+                      </mat-radio-button>
+
+                      </td>
+                    </mat-radio-group>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              
+              
+
+
+
+
+
+
+
+
+              // liste doctors
+
+              <div class="container rounded mt-5 bg-white p-md-5">
+
+  
+                <div class="form-group">
+                  <div class="h2 font-weight-bold">Liste des docteurs</div>
+              
+                </div>
+                <div class="container" >
+                    
+                  <div class="container" >
+                    
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Chercher..." (input)="filterItem($event.target.value)"  />
+                      </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+              
+                  <table class="table">
+              
+                    <thead>
+                      <tr>
+                        <th scope="col">Nom et prénom </th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Télèphone</th>
+                        <th scope="col">Invitation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+              
+                      <tr id="spacing-row">
+                        <td></td>
+                      </tr>  
+              
+                      <tr class="bg-blue" *ngFor="let prof of profs | paginate: { itemsPerPage: 6, currentPage: p }">
+               
+                        <td class="pt-2" >
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-md-auto">
+                                <img *ngIf="prof.photo !=''" class="img-profile rounded-circle" [src]="prof.photo">
+                                <img *ngIf="prof.photo ==''"  class="img-profile rounded-circle" src="../../../assets/img/avat.jpg">
+                              </div>
+                              <div class="col-md-auto">
+                                <div class="pl-lg-5 pl-md-3 pl-1 name" data-toggle="modal" data-target="#exampleModal"
+                                 >{{prof.name}} {{prof.lastname}} </div>
+                              </div>
+                            
+                            </div>
+                          </div>
+              
+                        
+                     
+                        </td>
+                        <td class="pt-3">{{prof.adresse}}</td>
+                        <td class="pt-3">{{prof.email}}</td>
+                        <td class="pt-3">{{prof.tel}} </td>
+                        <td class="pt-3">
+                        <div *ngIf="friend; else notfriend">
+                         
+                            <span (click)="addDoctor(prof._id)" >
+                              <i class="fa fa-user-plus pl-3" ></i>
+                            </span>
+              
+                        
+              
+                        </div>
+                      </td>
+                        <ng-template #notfriend>
+                          <td class="pt-3"><span class="fa fa-check pl-3"></span></td>
+                        </ng-template>
+              
+                      </tr>
+                    
+              
+              
+                    </tbody>
+              
+                  </table>
+              
+                </div>
+                <div class="parent">
+              
+                  <pagination-controls class="child" (pageChange)="p = $event"></pagination-controls>
+              
+                </div>
+              </div>
+              <div *ngIf="added">
+                <div class="alert alert-primary" role="alert">
+                  A simple primary alert—check it out!
+                </div>
+              </div>
+              
+              <!-- Modal -->
+              <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+              
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              
+
+
+     IDENTIFIER:"Identify",
+     INSCRIRE :"Register",
+     EMAIL :"Email",
+     MOTDEPASS:"",
+     SIGNIN:"",
+     CG:"",
+     RM:"",
+     NOM:"Name",
+     PRENOM:"Last Name",
+     DATEN:"Date of birth",
+     TELE:"",
+     ADDRESS:"",
+     METIER:"Trade",
+     CFM:"Confirm the password ",
+     "ACCEPTT":"Accept Terms & Conditions"
+
+
+     IDENTIFIER:"S'identifier",
+     INSCRIRE :"S'inscrire",
+     EMAIL :"E-mail",
+     MOTDEPASS:"",
+     SIGNIN:"",
+     CG:"",
+     RM:"",
+     NOM:"Nom",
+     PRENOM:"Prénom",
+     DATEN:"Date de naissance",
+     TELE:"",
+     ADDRESS:"",
+     METIER:"Métier",
+     CFM:"Confirmer le mot de passe ",
+     "ACCEPTT":"Accepter Terms & Conditions"
+
+
+
+
+
+
+
+payoallllllllllllllllllllllllllllllllllllllllllllllllllllllll
+
+     <div class="container">
+      <div class="row m-0">
+          
+          <div class="col-md-7 col-12">
+              <div class="row">
+                  <div class="col-12 mb-4">
+                      <div class="row box-right" *ngFor="let year of yearly ; let i = index" (click)="enableDisableRule()"
+                          [ngClass]="{'green' : !toggle, 'white': toggle}">
+                          <div class="col-md-8 ps-0 ">
+                              <p class="ps-3 textmuted fw-bold h6 mb-0">{{yearly[i].title}}</p>
+                              <p class="h3 fw-bold d-flex"> <span
+                                      class="textmuted pe-1 h6 align-text-top mt-1"></span>{{yearly[i].prix}}
+                                  {{yearly[i].currency}} </p>
+                              <!-- <p class="ms-3 px-2 bg-green">+10% since last month</p> -->
+                          </div>
+                          <!-- <div class="col-md-4">
+                              <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254 <span
+                                      class="textmuted">.50</span> </p>
+                              <p class="p-org"><span class="fas fa-circle pe-2"></span>On drafts</p>
+                              <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span
+                                      class="textmuted">.00</span></p>
+                          </div>          -->
+                          <p class="p-blue"> <span></span>{{yearly[i].desc}}</p>
+  
+                      </div>
+                      <div class="row box-right" *ngFor="let month of monthly ; let i = index"
+                          (click)="enableDisableRule()" [ngClass]="{'green' : toggle, 'white': !toggle}">
+                          <div class="col-md-8 ps-0 ">
+                              <p class="ps-3 textmuted fw-bold h6 mb-0">{{monthly[i].title}}</p>
+                              <p class="h3 fw-bold d-flex"> <span
+                                      class="textmuted pe-1 h6 align-text-top mt-1"></span>{{monthly[i].prix}}
+                                  {{monthly[i].currency}} </p>
+                              <!-- <p class="ms-3 px-2 bg-green">+10% since last month</p> -->
+                          </div>
+                          <!-- <div class="col-md-4">
+                              <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254 <span
+                                      class="textmuted">.50</span> </p>
+                              <p class="p-org"><span class="fas fa-circle pe-2"></span>On drafts</p>
+                              <p class="fw-bold"><span class="fas fa-dollar-sign pe-1"></span>00<span
+                                      class="textmuted">.00</span></p>
+                          </div>          -->
+                          <p class="p-blue"> <span></span>{{monthly[i].desc}}</p>
+  
+                      </div>
+  
+                  </div>
+  
+                  <div class="col-12 px-0">
+                      <div class="box-right">
+                          <img src="https://i.imgur.com/yK7EDD1.png" width="80" > <br>
+  
+                          <!-- <div class="d-flex mb-2">
+                              <p class="fw-bold">Create new invoice</p>
+                              <p class="ms-auto textmuted"><span class="fas fa-times"></span></p>
+                          </div>
+                          <div class="d-flex mb-2">
+                              <p class="h7">#AL2545</p>
+                              <p class="ms-auto bg btn btn-primary p-blue h8"><span class="far fa-clone pe-2"></span>COPY
+                                  PAYMENT LINK </p>
+                          </div>
+                          <div class="row">
+                              <div class="col-12 mb-2">
+                                  <p class="textmuted h8">Project / Description</p> <input class="form-control"
+                                      type="text" placeholder="Legal Consulting">
+                              </div>
+                              <div class="col-6">
+                                  <p class="textmuted h8">Issused on</p> <input class="form-control" type="text"
+                                      placeholder="Oct 25, 2020">
+                              </div>
+                              <div class="col-6">
+                                  <p class="textmuted h8">Due on</p> <input class="form-control" type="text"
+                                      placeholder="Oct 25, 2020">
+                              </div>
+                          </div> -->
+                         
+                          <div class="btn btn-primary d-block h8" style="width: 50% ; margin-top: 20px;" (click)="pay()">payer : abonnement {{status}} 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         
+      </div>
+  </div>
+
+
+
+
+  response.map((res)=>{
+  
+    if(res.nameAff2[0].Aff1!='Aucune dossier'){
+      this.forms.push(res)
+      this.filtredForms.push(res)
+    }
+  })

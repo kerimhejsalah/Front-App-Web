@@ -1,0 +1,87 @@
+<mat-card style="width: 95%;height: 800px;">
+
+<div class="content">
+  
+  <div class="container">
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;">{{ 'FORMS.DO' | translate }}</a></li>
+      </ol>
+    </nav>
+      <div class="row">
+          <div class="container" >
+        
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="{{ 'LISTPATIENT.SEARCH' | translate }}..." (input)="filterItem($event.target.value)"  />
+              </div>
+            </div>
+      </div>
+      <!-- end row -->
+  
+      <!-- end row -->
+
+      <!-- end row -->
+
+      <!-- end row -->
+   
+      <!-- end row -->
+  </div>
+  <!-- container -->
+</div>
+ 
+ <div class="row" style="width: 90%;">
+    <div class="row">
+      <div class="col order-last" *ngFor="let dossier of allDosssier | paginate: { itemsPerPage: 6, currentPage: p , id: 'p' } ;" style="padding-bottom: 5%;"    matTooltip="{{dossier.name}}"
+      matTooltipPosition="above">
+        <div *ngIf="!dossier.status"  class="card1" style="height: 150px;">
+            <img src="assets/dossier.svg" alt="" srcset="">
+            <div class="card-header">
+              
+                <div class="row" style="margin-left: 1px;display: flex;">
+                  <i class="bi bi-folder2 fa-lg"></i>
+                  <!--   <span> {{dossier.added_date | date}} </span> -->
+                  
+                </div>
+                <br>
+              <!--   <div [routerLink]="['/admin/dossier/detail' , dossier._id]" class="row" style="   cursor: pointer;">
+                       <h3 class="card-title mb-0">{{dossier.name.slice(0,50)}}</h3>
+                       <h3 class="card-title mb-0">{{dossier.name.slice(0,50)}}</h3>
+                    </div> -->
+                    <div class="row">
+                        <button class="col-sm" [routerLink]="['/professionnel/detaildossier', dossier._id  ]"  style="   cursor: pointer;background: transparent;border-color: transparent;">
+                            <h6 class="card-title">{{dossier.name.slice(0,20)}}</h6>  
+                        </button>
+                        <div class="col-sm">
+                   
+                        </div>
+                     <!--    <div *ngIf="spinerLoading" class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div> -->
+                     <!--      <div  class="col-sm">
+                          <div *ngIf="spinerLoading"  class="spinner-border spinner-border-sm" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                          <mat-icon *ngIf="!spinerLoading" (click)="openModal(dossier._id);getIdDossier(dossier._id)"  style="padding-top: 25%; cursor: pointer;">playlist_play</mat-icon>
+
+                        </div> -->
+                     
+                      </div>
+               
+            
+            </div>
+   
+        </div>
+      </div>
+      
+    </div>
+    <div class="parent">
+   
+</div>
+
+<div class="col-sm-3 col-xl-12  text-center">
+                      
+  <pagination-controls  previousLabel="{{ 'PAGINATION.PR' | translate }}"
+  nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="child" (pageChange)="p = $event" id="p"></pagination-controls>
+  </div>
+</div>     
+</mat-card>

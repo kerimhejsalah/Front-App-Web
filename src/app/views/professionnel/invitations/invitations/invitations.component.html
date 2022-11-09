@@ -1,0 +1,329 @@
+
+<div class="content">
+  
+  <div class="container">
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;">{{ 'LISTPATIENT.LISTPATIENT' | translate }}</a></li>
+      </ol>
+    </nav>
+
+      <!-- end row -->
+  
+      <!-- end row -->
+
+      <!-- end row -->
+
+      <!-- end row -->
+   
+      <!-- end row -->
+  </div>
+  <!-- container -->
+</div>
+<div class="container rounded mt-5 bg-white p-md-5">
+
+  
+
+  <div class="container" >
+      
+    <div class="container" >
+      
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="{{ 'LISTPATIENT.SEARCH' | translate }}..." (input)="filterItem($event.target.value)"  />
+        </div>
+      </div>
+  </div>
+  <div class="table-responsive">
+<!--     <div *ngIf="spinerListe" class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div> -->
+    <table  class="table">
+
+      <thead>
+        <tr>
+          <th scope="col">{{ 'PROFILE.NAME' | translate }} </th>
+          <th scope="col">{{ 'PROFILE.ADRESS' | translate }}</th>
+          <th scope="col">{{ 'PROFILE.EMAIL' | translate }}</th>
+          <th scope="col">{{ 'PROFILE.TELE' | translate }}</th>
+          <th scope="col">Invitation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr id="spacing-row">
+          <td></td>
+        </tr>  
+          <tr class="bg-blue" *ngFor="let prof of listPatient | paginate: { itemsPerPage: 5, currentPage: p }; let o = index">
+          <td class="pt-2" >
+            <div class="container">
+              <div class="row">
+                <div class="col-md-auto">
+                  <img *ngIf="prof.photo !='' && prof.photo != 'default.png'" class="img-profile rounded-circle" [src]="prof.photo">
+                  <img *ngIf="prof.photo =='' || prof.photo == 'default.png'"  class="img-profile rounded-circle" src="../../../assets/img/avat.jpg">
+                  
+                </div>
+                <div class="col-md-auto">
+                  <div class="pl-lg-5 pl-md-3 pl-1 name" data-toggle="modal" data-target="#exampleModal"
+                   >{{prof.name}} {{prof.lastname}}   </div>
+                </div>
+              
+              </div>
+            </div>
+
+          
+       
+          </td>
+          <td class="pt-3">{{prof.adresse}}</td>
+          <td class="pt-3">{{prof.email}}</td>
+          <td class="pt-3">{{prof.tel}} </td>
+          <td class="pt-3">
+          <div >
+           
+              <span (click)="addPatient(prof._id,o)" >
+                <i  class="fa fa-user-plus pl-3" ></i>
+              </span>
+
+          
+
+          </div>
+        </td>
+          <ng-template #notfriend>
+            <td class="pt-3"><span class="fa fa-check pl-3"></span></td>
+          </ng-template>
+
+        </tr>
+      
+
+
+      </tbody>
+
+    </table>
+
+  </div>
+<!--   <div *ngIf="spinerListe"  class="text-center mt-5" style="width: 100%;height: 100%;padding-bottom: 15%;">   
+    <h1 class="header-title" style="color: transparent;padding-bottom: 15%;font-size: 0px;">A</h1>
+    <h1 class="header-title" style="color: red;padding-bottom: 15%;">{{ 'FORMS.AUCUNN' | translate }} </h1>
+  
+  </div> -->
+    <div class="parent">
+
+    <pagination-controls     previousLabel="{{ 'PAGINATION.PR' | translate }}"
+    nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="child" (pageChange)="p = $event;getPage($event)"></pagination-controls>
+
+  </div> 
+</div>
+
+
+
+
+<!-- <div class="container">
+  <div class="main-body">
+
+ 
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a >Professionnel</a></li>
+        <li class="breadcrumb-item"><a >Invitations</a></li>
+      </ol>
+    </nav>
+ 
+    <div class="container" >
+          
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Chercher..." (input)="filterItem($event.target.value)" />
+      </div>
+    </div>
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+     
+
+       
+      
+      
+
+      </div>
+
+ 
+
+      <div class="container" *ngFor="let invt of invts ;let i =index ">
+
+        <ul class="list-group" *ngIf="invt.status == false">
+
+
+          <table>
+            <tr style="width: 100%;" class="list-group-item">
+              <td style="width: 100%;">
+                <div class="list-group " style="width: 100%;">
+                  <li style="width: 100%;">
+                    <img [src]="invt.patient.photo" alt="" style="width: 50px; height: 50px;">
+                    <i style="margin-left: 150px;" (click)="getIdPat(invt.patient._id)">{{invt.patient.name}}
+                      {{invt.patient.lastname}}</i>
+
+                  </li>
+
+                </div>
+              </td>
+              <td>
+                <div class="list-group " style="width: 100%;">
+                  <li class="list-group" style="width: 100%;">
+                    <button type="button" (click)="details(i)" class="btn btn-primary btn-sm" data-toggle="modal"
+                      data-target=".bd-example-modal-lg">
+
+                      détails
+                    </button>
+
+                  </li>
+                </div>
+              </td>
+              <td>
+                <button type="button" class="btn btn-success btn-sm"  (click)="acceptInvt(invt._id)">
+                  accepter
+                </button>
+
+              </td>
+            </tr>
+          </table>
+
+
+
+        </ul>
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div> -->
+<!-- tessssssssssst -->
+
+<!-- Button trigger modal -->
+<!-- <div id="parent">
+    Some content
+    <div id="hover-content">
+        Only show this when hovering parent
+    </div>
+</div> -->
+
+<!-- <button (mouseenter)="$event.target.click()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Open modal
+</button> -->
+<!-- Modal -->
+
+<!-- Large modal -->
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="container">
+        <div class="main-body">
+
+
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a>Patient</a></li>
+              <li class="breadcrumb-item"><a>Profile
+                </a></li>
+              <li class="breadcrumb-item active" aria-current="page">détails</li>
+            </ol>
+          </nav>
+
+
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <div class="profile-img"> <img style="height: 200px; width:200px;" [src]="pat.photo" alt="" />
+
+
+                    </div>
+                    <div class="mt-3">
+
+                      <h4> {{pat.name}} {{pat.lastname}}</h4>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Nom et prénom</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{pat.name}} {{pat.lastname}}
+
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{pat.email}}
+                    </div>
+                  </div>
+                 
+
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Télèphone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{pat.tel}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Date de naissance</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{pat.birthday}}
+                    </div>
+                  </div>
+                  <hr>
+           
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Adresse</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{pat.adresse}}
+                    </div>
+                  </div>
+                  <hr>
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Small modal -->
+<!-- <div  *ngIf="invts==0" class="text-center mt-5" style="width: 100%;height: 100%;padding-bottom: 15%;">   
+  <h1 class="header-title" style="color: transparent;padding-bottom: 15%;font-size: 0px;">A</h1>
+  <h1 class="header-title" style="color: red;padding-bottom: 15%;">AUCUN INVITATION  </h1>
+
+</div> -->

@@ -1,0 +1,234 @@
+.example-form {
+  min-width: 150px;
+  max-width: auto;
+  width: 100%;
+}
+
+.example-full-width {
+  width: auto;
+}
+.login-page {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  display: block;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.register-page {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 1200px;
+  display: block;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.swal-wide{
+  width:100% !important;
+}
+
+mat-card-content {
+  width:100%;
+ 
+
+}
+
+mat-form-field, mat-checkbox {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+mat-card-content {
+  margin-top: 20px;
+
+}
+
+.login-button {
+  margin-top: 20px;
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  background-color: #FF4500 ;
+}
+.green-snackbar {
+  background: rgb(65, 252, 134);
+  color: white;
+}
+.green-snackbar button {
+  background-color: rgb(65, 252, 134);
+  color: white;
+  border: none;
+}
+.red-snackbar {
+  background: #F44336;
+  color: white;
+}
+.red-snackbar button {
+  background-color: #F44336;
+  color: white !important;
+  border: none;
+}
+mat-button-toggle-group {
+  /* display: flex;
+  margin-left: 120px;
+  margin-right: 120px; */
+  border-radius: 30px;
+
+}
+
+
+.mat-button-toggle-checked{
+  background-color:#FF4500;
+  color:#fff;
+}
+mat-dialog-content{
+
+  display: block;
+  overflow: hidden;
+  background-color: transparent;
+
+
+}
+
+mat-dialog-container{
+  background-color: transparent;
+  width: 60%;
+
+}
+.mat-card {
+
+    transition: none
+   
+
+}
+::-webkit-scrollbar {
+    width: 0;  /*Remove scrollbar space
+    background: transparent;  /*Optional: just make scrollbar invisible*/
+}
+/*Optional: show position indicator in red*/
+
+
+
+
+
+
+.btn{
+  margin-right: 20px;
+
+}
+
+
+
+
+
+
+.mat-dialog-container{
+  height: 50px;
+}
+
+.mat-card-content-reg{
+
+}
+
+
+
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.float-child {
+  width: 50%;
+  float: left;
+}
+
+h1{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
+
+h2{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
+
+/* password hide show */
+.mat-progress-bar.mat-warn .mat-progress-bar-buffer
+{
+  width: 50px;
+
+
+}
+
+
+.parent {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .child {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+
+
+  .ex1 {
+    width: auto;
+    height: 250px;
+    overflow: scroll;
+  }
+
+
+
+  mat-icon:hover {
+    cursor: pointer;
+  }
+  .mat-radio-button {
+border-radius: 60px;
+}
+.choix{
+  margin-top: 20px;
+
+}
+.my-overlay {
+  left: 0 !important;
+  top: 0 !important;
+  z-index: 10000 !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed !important;
+  background-color: rgba(255, 255, 255, 0.252) !important;
+  cursor: pointer !important;
+  visibility: visible !important;
+  transition: visibility 0s, opacity 0.4s linear !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: wait !important;
+}
+.my-overlay i.fa.fa-spinner.fa-spin, .spinner-big {
+  font-size: 100px !important;
+}
+canvas {
+  display: block;
+  box-shadow: 0 0 5px 1px #999;
+  margin: 2em auto;
+}
+/* a {
+ border: 1px solid #007bff;
+ background: #007bff;
+ padding: 10px;
+ color: white;
+ text-decoration: none;
+ border-radius: 6px;
+}
+a:hover{
+  background: white;
+  color: #007bff;
+} */

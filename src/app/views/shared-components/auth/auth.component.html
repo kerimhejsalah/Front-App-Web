@@ -1,0 +1,536 @@
+<div class="parent">
+  <!-- <div class="child" id="status" mat-dialog-title>{{status}}</div> -->
+
+
+</div>
+<mat-dialog-content style="height:auto ;"> 
+  <div class="login-page">
+      <!-- <mat-card-title style="text-align:center;">SignIn/SignUp</mat-card-title> -->
+<!--       <canvas #canvas width="400" height="300"></canvas>
+      <button (click)="download()">Save image</button>
+      <button (click)="clear()">clear image</button>
+      <img [src]="imgPad" *ngIf="imgPad" /> -->
+      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" >
+
+        <!-- login form -->
+        <mat-tab label="{{ 'AUTH.IDENTIFIER2' | translate }}">
+          <br>
+          <div class="col-sm-3 col-xl-12  text-center">
+            <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style"
+              #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)">
+              <mat-button-toggle value="Professionnel" (click)="onReset()" class="pro">{{ 'AUTH.PROF' | translate }}
+              </mat-button-toggle>
+              <mat-button-toggle disabled="true"  >
+              </mat-button-toggle>   
+              <mat-button-toggle value="Patient" (click)="onReset()" class="pat"> {{ 'AUTH.PAT' | translate }}</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+
+          <br>
+
+          <mat-card-content >
+            <div class="switch" [ngSwitch]="selectedVal">
+
+              <div class="proReg" *ngSwitchCase="'Professionnel'">
+
+
+                <form [formGroup]="loginFormPro" (ngSubmit)="loginPro(loginFormPro)">
+
+
+                  <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && flogPro.email.errors }">
+                    <mat-error *ngIf="flogPro.email.invalid">Email requis</mat-error>
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput placeholder="{{ 'AUTH.MOTDEPASS' | translate }}" [type]="hide ? 'password' : 'text'"
+                      formControlName="password" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && flogPro.password.errors }">
+                    <mat-icon (click)="myFunction()" matSuffix>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-error *ngIf="flogPro.password.invalid">Mot de passe requis </mat-error>
+                  </mat-form-field>
+
+                  
+                  <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                  
+                    <button mat-raised-button color="primary" class="login-button" type="submit" style="width:40% ;">
+                      {{ 'AUTH.SIGNIN' | translate }}
+                    </button> <br>
+           <!--          <button mat-raised-button color="primary" (click)="signInWithGoogle()" type="submit" style="margin-right: 10px">
+                      {{ 'AUTH.CG' | translate }}
+                    </button> -->
+               </div>
+             <!--   <mat-checkbox>  {{ 'AUTH.RM' | translate }}</mat-checkbox> -->
+
+              
+              
+                 
+
+                </form>
+              </div>
+
+
+              <div class="proReg" *ngSwitchCase="'Patient'">
+
+                <form [formGroup]="loginFormPat" (ngSubmit)="loginPat(loginFormPat)">
+
+
+                  <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && flogPat.email.errors }">
+                    <mat-error *ngIf="flogPat.email.invalid">Email requis</mat-error>
+                    <mat-icon matSuffix>email</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput placeholder="{{ 'AUTH.MOTDEPASS' | translate }}" [type]="hide ? 'password' : 'text'"
+                      formControlName="password" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && flogPat.password.errors }">
+                    <mat-icon (click)="myFunction()" matSuffix>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <mat-error *ngIf="flogPat.password.invalid">Mot de passe requis </mat-error>
+                  </mat-form-field>
+
+
+                  <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                  
+                    <button mat-raised-button color="primary" class="login-button" type="submit" style="width:40% ;">
+                      {{ 'AUTH.SIGNIN' | translate }}
+                    </button> <br>
+           <!--          <button mat-raised-button color="primary" (click)="signInWithGoogle()" type="submit" style="margin-right: 10px">
+                      {{ 'AUTH.CG' | translate }}
+                    </button> -->
+               </div>
+               <!-- <mat-checkbox>{{ 'AUTH.RM' | translate }}</mat-checkbox> -->
+
+                  <!-- <button mat-raised-button class="login-button">
+                Login with Google
+              </button> -->
+                </form>
+              </div>
+
+
+            </div>
+          </mat-card-content>
+
+        </mat-tab>
+        <!-- /login form -->
+
+        <!-- register form -->
+        <!-- <div class="register-page"> -->
+
+        <mat-tab label="{{ 'AUTH.INSCRIRE' | translate }}"  style=" height:900px;" >
+          <mat-card-content class="mat-card-content-reg"  style=" height: 900px;"   >
+              <!-- <h5 class="card-header">{{status}}</h5> -->
+              <div class="card-body"  style="width: 600px; height:1000px;" >
+                <br>
+                <div class="col-sm-3 col-xl-12  text-center">
+                  <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style"
+                    #group2="matButtonToggleGroup" [value]="selectedVal2" (change)="onValChange2(group2.value)">
+                    <mat-button-toggle value="Professionnel" (click)="onReset()" class="pro">{{ 'AUTH.PROF' | translate }}
+                    </mat-button-toggle>
+                    <mat-button-toggle disabled="true" >
+                    </mat-button-toggle> 
+                    <mat-button-toggle value="Patient" (click)="onReset()" class="pat"> {{ 'AUTH.PAT' | translate }} </mat-button-toggle>
+                  </mat-button-toggle-group>
+
+
+                </div>
+        <br>
+                <div class="switch" [ngSwitch]="selectedVal2"   style=" height: 1700px;" >
+
+                  <div class="proReg" *ngSwitchCase="'Professionnel'" style=" height: 1200px;">
+
+                    <form class="ex1" [formGroup]="registerFormPro" (ngSubmit)="registerPro(registerFormPro,2)" style=" height: 1200px;">
+                      <div class="form-row" style=" height: auto;">
+                        <!-- <h1 >Professionnel</h1> -->
+
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.NOM' | translate }}" type="text" formControlName="name" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required"> Nom obligatoire</div>
+                          </div>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.PRENOM' | translate }}" type="text" formControlName="lastname"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" />
+                          <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastname.errors.required">Prénom est obligatoire</div>
+                          </div>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                          <mat-label>{{ 'AUTH.DATEN' | translate }}</mat-label>
+                          <input matInput [matDatepicker]="basicDatepicker" formControlName="birthday"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }">
+                          <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
+                            <div *ngIf="f.birthday.errors.required">date de naissance obligatoire</div>
+                          </div>
+                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-datepicker-toggle matSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
+                          <mat-datepicker #basicDatepicker></mat-datepicker>
+                        </mat-form-field>
+
+
+                        <mat-form-field>
+                          <input matInput placeholder="Tel" type="number" formControlName="tel" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.tel.errors }" />
+                          <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+                            <div *ngIf="f.tel.errors.required">tel est obligatoire</div>
+                          </div>
+                        </mat-form-field>
+
+
+
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.ADDRESS' | translate }}" type="text" formControlName="adresse"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }" />
+                          <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+                            <div *ngIf="f.adresse.errors.required">adresse est obligatoire</div>
+                          </div>
+                        </mat-form-field>
+
+
+
+
+
+                        <mat-form-field>
+                          <input matInput placeholder="Fax" type="number" formControlName="fax" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.fax.errors }" />
+                          <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.fax.errors.required">fax obligatoire</div>
+                            <div *ngIf="f.fax.errors">fax obligatoire</div>
+
+                          </div>
+                        </mat-form-field>
+
+                  <!--       <div class="float-container">
+                          <mat-radio-group aria-label="Select an option">
+                            <div class="float-child">
+                              <mat-radio-button value="homme" formControlName="gender" class="form-control  "
+                                [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" ngDefaultControl>Homme
+                              </mat-radio-button>
+                              <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                <div *ngIf="f.job.errors.required">job obligatoire</div>
+                              </div>
+                            </div>
+                            <div class="float-child">
+                              <mat-radio-button value="femme" formControlName="gender" class="form-control  "
+                                [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" ngDefaultControl>Femme
+                              </mat-radio-button>
+                              <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                <div *ngIf="f.job.errors.required">job obligatoire</div>
+                              </div>
+                            </div>
+                          </mat-radio-group>
+                        </div> -->
+
+                     <!--    <mat-form-field>
+                          <input matInput placeholder="travail" type="text" formControlName="job" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.job.errors }" />
+                        
+                        </mat-form-field> -->
+                        <mat-form-field appearance="fill">
+                          <mat-label>{{ 'AUTH.METIER' | translate }}</mat-label>
+                          <mat-select formControlName="job"  [(ngModel)]="foods[0].viewValue">
+                            <mat-option *ngFor="let food of foods" [value]="food.viewValue">
+                              {{food.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                       <!--    <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.job.errors.required">travail obligatoire</div>
+                          </div> -->
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                          <mat-label>{{ 'AUTH.TITRE' | translate }}</mat-label>
+                          <mat-select formControlName="title"  [(ngModel)]="titre[0].viewValue">
+                            <mat-option *ngFor="let food of titre" [value]="food.viewValue">
+                              {{food.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                       <!--    <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.job.errors.required">travail obligatoire</div>
+                          </div> -->
+                        </mat-form-field>
+                  <!--       <mat-form-field>
+                          <input matInput placeholder="ADELI" type="number" formControlName="adeli" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.adeli.errors }" />
+                          <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.adeli.errors.required">adeli obligatoire</div>
+                          </div>
+                        </mat-form-field> -->
+
+
+                        <mat-form-field>
+                          <input matInput placeholder="RPPS" type="number" formControlName="rpps" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.rpps.errors }" />
+                          <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="f.rpps.errors.required">rpps obligatoire</div>
+                          </div>
+                        </mat-form-field>
+
+                      </div>
+                      <mat-form-field>
+                        <input matInput placeholder="{{ 'AUTH.EMAIL' | translate }}" type="text" formControlName="email" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                          <mat-error *ngIf="!registerFormPro.controls['email'].valid && registerFormPro.controls['email'].touched">
+                            {{ getErrorEmail() }}
+                          </mat-error>
+                      </mat-form-field>
+                      <div class="form-row">
+
+                        <mat-form-field>
+                          <input #password matInput placeholder="{{ 'AUTH.MOTDEPASS' | translate }}" [type]="hide ? 'password' : 'text'"
+                            formControlName="password" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                          <mat-hint align="end" aria-live="polite">
+                            {{password.value.length}} / {{passwordComponent.max}}
+                          </mat-hint>
+                          <mat-icon (click)="myFunction()" matSuffix>{{hide ? 'visibility_off' : 'visibility'}}
+                          </mat-icon>
+                          <mat-error *ngIf="!registerFormPro.controls['password'].valid && registerFormPro.controls['password'].touched">
+                            {{ getErrorPassword() }}
+                          </mat-error>
+
+                          <mat-password-strength #passwordComponent (onStrengthChanged)="onStrengthChanged($event)"
+                            [password]="password.value">
+                          </mat-password-strength>
+
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.CFM' | translate }}" [type]="hide ? 'password' : 'text'"
+                            formControlName="confirmPassword" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                            <mat-error *ngIf="registerFormPro.controls['confirmPassword'].value==registerFormPro.controls['password'].value">
+                              {{ getErrorPassword() }}
+                            </mat-error>
+                        </mat-form-field>
+                      </div>
+                 <!--      <canvas #canvas width="400" height="300"></canvas>
+                      <button (click)="download()">Save image</button>
+                      <button (click)="clear()">clear image</button>
+                      <img [src]="imgPad" *ngIf="imgPad" /> -->
+                   <!--    <mat-icon matSuffix (click)="openAlertDialog()" >add</mat-icon> -->
+                   
+                      <div class="form-group form-check">
+                        <mat-icon matSuffix (click)="openAlertDialog()" >add</mat-icon>
+                         
+                        <label for="acceptTerms" class="form-check-label" (click)="openAlertDialog()">{{ 'AUTH.ACCEPTT' | translate }}</label>
+                        <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accepter Ts & Cs is
+                          obligatoire</div>
+                      </div>
+                      <div class="text-center">
+                        <button class="btn btn-primary mr-1" type="submit" [disabled]="acceptTermePro">{{ 'AUTH.INSCRIRE' | translate }}</button>
+                     
+              <!--       <button mat-raised-button color="primary" (click)="signInWithGoogle()" type="submit" style="margin-right: 10px">
+                      {{ 'AUTH.CG' | translate }}
+                    </button> -->
+                      </div>
+                    </form>
+                  </div>
+
+
+                  <div class="patReg" *ngSwitchCase="'Patient'" style=" height: 1200px;">
+                    <form class="ex1" [formGroup]="registerFormPat" (ngSubmit)="registerPat(registerFormPat,2)" style=" height: 1200px;">
+                      <div class="form-row">
+                        <!-- <h1 >Patient</h1> -->
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.NOM' | translate }}" type="text" formControlName="name" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && fPat.name.errors }" />
+                          <div *ngIf="submitted && fPat.name.errors" class="invalid-feedback">
+                            <div *ngIf="fPat.name.errors.required">Nom est obligatoire </div>
+                          </div>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.PRENOM' | translate }}" type="text" formControlName="lastname"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && fPat.lastname.errors }" />
+                          <div *ngIf="submitted && fPat.lastname.errors" class="invalid-feedback">
+                            <div *ngIf="fPat.lastname.errors.required">Prénom est obligatoire </div>
+                          </div>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                          <mat-label>{{ 'AUTH.DATEN' | translate }}</mat-label>
+                          <input matInput [matDatepicker]="picker" formControlName="birthday" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && fPat.birthday.errors }">
+                          <div *ngIf="submitted && fPat.birthday.errors" class="invalid-feedback">
+                            <div *ngIf="fPat.birthday.errors.required">date de naissance est obligatoire </div>
+                          </div>
+                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <input matInput placeholder="Ssn" type="number" formControlName="ssn" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && fPat.ssn.errors }" />
+                          <div *ngIf="submitted && fPat.ssn.errors" class="invalid-feedback">
+                            <div *ngIf="fPat.ssn.errors.required">tel est obligatoire</div>
+                          </div>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <input matInput placeholder="{{ 'AUTH.ADDRESS' | translate }}" type="text" formControlName="adresse"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && fPat.adresse.errors }" />
+                          <div *ngIf="submitted && fPat.adresse.errors" class="invalid-feedback">
+                            <div *ngIf="fPat.adresse.errors.required">Adresse est obligatoire</div>
+                          </div>
+                        </mat-form-field>
+
+
+                        <div class="float-container">
+                          <mat-radio-group aria-label="Select an option">
+                            <div class="float-child">
+                              <mat-radio-button value="homme" formControlName="gender" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && fPat.gender.errors }" ngDefaultControl>{{ 'AUTH.SEXEH' | translate }}
+                              </mat-radio-button>
+                              <div *ngIf="submitted && fPat.gender.errors" class="invalid-feedback">
+                              </div>
+                            </div>
+                            <div class="float-child">
+
+                              <mat-radio-button value="femme" formControlName="gender" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && fPat.gender.errors }" ngDefaultControl>{{ 'AUTH.SEXEF' | translate }}
+                              </mat-radio-button>
+                              <div *ngIf="submitted && fPat.gender.errors" class="invalid-feedback">
+                              </div>
+                            </div>
+                          </mat-radio-group>
+                        </div>
+
+
+
+                    <!--     <mat-form-field>
+                          <input matInput placeholder="SSN" type="number" formControlName="ssn" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && fPat.ssn.errors }" />
+                          <div *ngIf="submitted && fPat.ssn.errors" class="invalid-feedback">
+                            <div *ngIf="fPat.ssn.errors.required">ssn est obligatoire</div>
+                          </div>
+                        </mat-form-field> -->
+
+
+
+                      </div>
+                      <mat-form-field>
+                        <input matInput placeholder="{{ 'AUTH.TELE' | translate }}" type="number" formControlName="tel" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && fPat.tel.errors }" />
+                        <div *ngIf="submitted && fPat.tel.errors" class="invalid-feedback">
+                          <div *ngIf="fPat.tel.errors.required">tel est obligatoire</div>
+                        </div>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="{{ 'AUTH.POID' | translate }}" type="number" formControlName="weight" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && fPat.weight.errors }" />
+                        <div *ngIf="submitted && fPat.weight.errors" class="invalid-feedback">
+                          <div *ngIf="fPat.weight.errors.required">weight est obligatoire</div>
+                        </div>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="{{ 'AUTH.SIZE' | translate }}" type="number" formControlName="size" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && fPat.size.errors }" />
+                          <mat-error *ngIf="!registerFormPat.controls['size'].valid && registerFormPat.controls['size'].touched">
+                            {{ getErrorEmail() }}
+                          </mat-error>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="email" type="text" formControlName="email" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && fPat.email.errors }" />
+                          <mat-error *ngIf="!registerFormPat.controls['email'].valid && registerFormPat.controls['email'].touched">
+                            {{ getErrorEmail() }}
+                          </mat-error>
+                      </mat-form-field>
+
+                      <div class="form-row">
+
+
+                        <mat-form-field>
+                          <input #password matInput placeholder="{{ 'AUTH.MOTDEPASS' | translate }}" [type]="hide ? 'password' : 'text'"
+                            formControlName="password" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && fPat.password.errors }" />
+                          <mat-hint align="end" aria-live="polite">
+                            {{password.value.length}} / {{passwordComponent.max}}
+                          </mat-hint>
+                          <mat-icon (click)="myFunction()" matSuffix>{{hide ? 'visibility_off' : 'visibility'}}
+                          </mat-icon>
+
+                          <mat-error *ngIf="!registerFormPat.controls['password'].valid && registerFormPat.controls['password'].touched">
+                            {{ getErrorPassword() }}
+                          </mat-error>
+
+                          <mat-password-strength #passwordComponent (onStrengthChanged)="onStrengthChanged($event)"
+                            [password]="password.value">
+                          </mat-password-strength>
+
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <input  matInput placeholder="{{ 'AUTH.CFM' | translate }}" [type]="hide ? 'password' : 'text'"
+                            formControlName="confirmPassword" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && fPat.confirmPassword.errors }" />
+                          
+                            <mat-error *ngIf="registerFormPat.controls['confirmPassword'].value==registerFormPat.controls['password'].value">
+                              {{ getErrorPassword() }}
+                            </mat-error>
+                         
+                        </mat-form-field>
+                    <!--     <ng-signature-pad
+                        doneButtonText="Show Image"
+                        format="base64"
+                        (done)="showImage($event)">
+                      </ng-signature-pad>
+                      
+                      
+                      <img [src]="signatureImage" *ngIf="signatureImage" />
+                      
+                      {{image}} -->
+                      </div>
+                     
+                      <div class="form-group form-check">
+                <!--       <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                          [ngClass]="{ 'is-invalid': submitted && fPat.acceptTerms.errors }" /> -->
+                          <mat-icon matSuffix (click)="openAlertDialog()" >add</mat-icon>
+                        <label for="acceptTerms" class="form-check-label" (click)="openAlertDialog()">{{ 'AUTH.ACCEPTT' | translate }}</label>
+                        <div *ngIf="submitted && fPat.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is
+                          required</div>
+                      </div>
+                      <div class="text-center"> 
+                        <button class="btn btn-primary mr-1" type="submit" [disabled]="acceptTerme">{{ 'AUTH.INSCRIRE' | translate }}</button>
+                     <!--    <button mat-raised-button color="primary" (click)="signInWithGoogle()"  type="submit" style="margin-right: 10px">
+                          {{ 'AUTH.CG' | translate }}
+                        </button> -->
+                      </div>
+                    </form>
+
+                
+                  </div>
+                </div>
+
+
+              </div>
+
+
+
+
+
+
+            
+
+          </mat-card-content>
+        </mat-tab>
+
+        <!-- register form -->
+
+
+
+      </mat-tab-group>
+  </div>
+
+
+</mat-dialog-content>
+
+
+<!-- <div class="my-overlay" *ngIf="showOverlay">
+  <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+</div> -->

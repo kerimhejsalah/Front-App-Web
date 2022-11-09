@@ -1,0 +1,138 @@
+
+
+
+
+
+<div class="col-md-12" style="margin-top: -16px;">
+ 
+  <div class="card pt-3" style="height: 780px;">
+      <div   class="card-body">
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;">{{ 'LISTPATIENT.CC' | translate }}</a></li>
+            </ol>
+          </nav>
+        <br><br><br><br>
+     
+          <div>
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputName">{{ 'AUTH.NOM' | translate }}</label>
+                      <input [(ngModel)]="patient.name" type="text" [ngClass]="{'form-control': true, 'error' : testName}" id="inputName"  placeholder="{{ 'AUTH.NOM' | translate }}">
+                      <p class="text-danger" *ngIf="testName"> Nom invalide </p>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="inputPrenom">{{ 'AUTH.PRENOM' | translate }}</label>
+                      <input [(ngModel)]="patient.lastname" type="text"  [ngClass]="{'form-control': true, 'error' : testLastName}" id="inputPrenom"  placeholder="{{ 'AUTH.PRENOM' | translate }}">
+                      <p class="text-danger" *ngIf="testLastName"> Prénom invalide </p>
+                  </div>
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputEmail4">{{ 'AUTH.EMAIL' | translate }}</label>
+                      <input [(ngModel)]="patient.email" type="email"  [ngClass]="{'form-control': true, 'error' : testEmail}" id="inputEmail4" placeholder="{{ 'AUTH.EMAIL' | translate }}" >
+                      <p class="text-danger" *ngIf="testEmail"> Email invalide , Example: example@example.com </p>
+                  </div>
+                  <div class="form-group col-md-6">
+                      <label for="inputPassword4">{{ 'AUTH.MOTDEPASS' | translate }}</label>
+                      <input [(ngModel)]="patient.password" type="password"  [ngClass]="{'form-control': true, 'error' : testPassword}" id="inputPassword4" placeholder="{{ 'AUTH.MOTDEPASS' | translate }}">
+                      <p class="text-danger" *ngIf="testPassword"> Mot de passe invalide (minimum 6 caractéres) </p>
+                  </div>
+              </div>
+
+
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="inputAddress">{{ 'AUTH.ADDRESS' | translate }}</label>
+                      <input [(ngModel)]="patient.adresse" type="text"  [ngClass]="{'form-control': true, 'error' : testAdresse}" id="inputAddress" placeholder="{{ 'AUTH.ADDRESS' | translate }}">
+                      <p class="text-danger" *ngIf="testAdresse"> Saisir votre addresse </p>
+                  </div>
+                  
+                  <div class="form-group col-md-6">
+                      <label for="inputEmail4">Gender</label>
+                      <select name="" id=""  [ngClass]="{'form-control': true, 'error' : testGender}" [(ngModel)]="patient.gender">
+                          <option [ngValue]="'homme'">{{ 'AUTH.SEXEH' | translate }}</option>
+                          <option [ngValue]="'femme'">{{ 'AUTH.SEXEF' | translate }}</option>
+                          
+                      </select>
+                      <p class="text-danger" *ngIf="testGender"> Séléctionner le genre </p>
+                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAddress">{{ 'AUTH.POID' | translate }}</label>
+                    <input [(ngModel)]="patient.weight" type="text"  [ngClass]="{'form-control': true, 'error' : testAdresse}" id="inputAddress" placeholder="{{ 'AUTH.POID' | translate }}">
+                    <p class="text-danger" *ngIf="testAdresse"> Saisir votre addresse </p>
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">{{ 'AUTH.SIZE' | translate }}</label>
+                    <input [(ngModel)]="patient.size" type="text"  [ngClass]="{'form-control': true, 'error' : testAdresse}" id="inputAddress" placeholder="{{ 'AUTH.SIZE' | translate }}">
+                    <p class="text-danger" *ngIf="testAdresse"> Saisir votre addresse </p>
+                </div>
+            </div>
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="inputCity">{{ 'AUTH.DATEN' | translate }}</label>
+                      <input [(ngModel)]="patient.birthday" type="date"  [ngClass]="{'form-control': true, 'error' : testBirthday}" id="inputCity">
+                      <p class="text-danger" *ngIf="testBirthday"> Séléctionner la date de naissance </p>
+             
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="inputTel">{{ 'AUTH.TELE' | translate }}</label>
+                      <input [(ngModel)]="patient.tel" type="text"  [ngClass]="{'form-control': true, 'error' : testTelephone}" id="inputTel">
+                      <p class="text-danger" *ngIf="testTelephone"> Télèphone invalide </p>
+                
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="inputZip">ssn</label>
+                      <input [(ngModel)]="patient.ssn" type="text"  [ngClass]="{'form-control': true, 'error' : testSsn}" id="inputZip">
+                      <p class="text-danger" *ngIf="testSsn"> SSN invalide </p>
+               
+                  </div>
+              </div>
+          <!--     <div class="form-group col-12">
+                  <label for="inputphoto" class="m-2" style="width: 99%;">
+                      <div class="card card-to-add" >
+                   
+                          <i  style=" text-align: center; font-size: 60px;padding: 24px;" class="far fa-images  mx-auto"></i>
+                      </div>
+                  </label>
+                      <input   #fileInput type="file"  [ngClass]="{'form-control': true}" id="inputphoto" style="display: none;">
+              </div> -->
+
+              <div *ngIf="url" class="form-groupe  m-3">
+                  <img style="width:100px" [src]="url" alt="">
+              </div>
+              <div *ngIf="validSpinner" class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <button  (click)="validEmail()" class="btn btn-primary">{{ 'AUTH.ENR' | translate }}
+
+            <!--       <div   *ngIf="showSpinner" class="spinner-border  " role="status">
+                      <span class="visually-hidden"></span>
+                    </div> -->
+              </button>
+          </div>
+  
+      </div>
+ <!--      <div *ngIf="!resultAdd"  class="card-body" style="text-align:center">
+    
+            <div class="form-group">
+              <label for="exampleInputEmail1">{{ 'VALIDEMAIL.EA' | translate }}</label>
+              <input type="email" class="form-control"  [(ngModel)]="patient.email"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{ 'VALIDEMAIL.ENTERE' | translate }}">
+            </div>
+            <div *ngIf="validSpinner" class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <br>
+            <button type="submit" class="btn btn-primary" (click)="validEmail()">{{ 'VALIDEMAIL.VALIDER' | translate }}</button>
+       
+      </div> -->
+  </div>
+</div>

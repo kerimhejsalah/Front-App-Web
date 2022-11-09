@@ -1,0 +1,45 @@
+ 
+<mat-dialog-content style="width: 700px;height:100%">
+   
+    <p style="font-weight: bold;font-size: 110%;">
+        {{ 'DIALOG.BN' | translate }} {{message}}, <br>
+    </p>
+        <hr>
+        <p >
+        {{ 'DIALOG.PARA' | translate }}
+    </p>
+ 
+     
+        <!--   <button (click)="download()">Save image</button>
+          <button (click)="clear()">clear image</button> -->
+       <!--      <img src="https://res.cloudinary.com/med-in-outlook/image/upload/v1667464267/tisyv1nvkutdnly9flja.svg" *ngIf="!test" style="display: block;
+           box-shadow: 0 0 5px 1px rgb(207, 11, 11);
+           margin: 2em auto;
+           " />    -->
+
+  <hr>
+    <div class="insideWrapper">
+     
+        <label for="inputTag">
+            <mat-icon>camera_enhance</mat-icon> Importer Signature
+        <input  type="file" (change)="handleFileInput3($event.target.files)"  id="inputTag"/>
+    </label>
+        <img  *ngIf="imageUrl" [src]="imageUrl" class="coveredImage">
+        <canvas  #canvas width="600" height="250"></canvas>
+        
+    </div>
+ 
+   
+
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{ 'AUTH.CS' | translate }}</button>
+    <button mat-raised-button color="primary" (click)="clear()" tabindex="1">{{ 'AUTH.CLEAR' | translate }}</button>
+<!-- 	<input type="file" name="file" (change)="handleFileInput($event.target.files)" #fileUpload/> -->
+</mat-dialog-actions>
+<!-- <div class="outsideWrapper">
+    <div class="insideWrapper">
+        <img src="http://www.lynnecalder.com/house_clipart.gif" class="coveredImage">
+        <canvas class="coveringCanvas"></canvas>
+    </div>
+</div> -->

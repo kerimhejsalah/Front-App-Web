@@ -1,0 +1,189 @@
+<mat-card style="width: 95%;height: 800px;">
+
+
+<div class="content">
+  
+    <div class="container">
+      <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;">{{ 'LISTPATIENT.PATIENT' | translate }}</a></li>
+        </ol>
+      </nav>
+        <div class="row">
+            <div class="container" >
+          
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="{{ 'LISTPATIENT.SEARCH' | translate }}..." (input)="filterItem($event.target.value)"  />
+                </div>
+              </div>
+        </div>
+        <!-- end row -->
+        <div class="row">
+            <div *ngIf="!contacts" class="d-flex justify-content-center" >
+                <div class="spinner-border text-secondary" role="status" style="width: 7rem; height: 7rem;">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+            <div class="col-lg-4" *ngFor="let contact of contacts | paginate: { itemsPerPage: 3, currentPage: p } ">
+                <div class="text-center card-box">
+                    <div class="member-card pt-3 pb-3">
+                        <div class="thumb-lg member-thumb mx-auto"><img *ngIf="contact.patients.photo!=''&&contact.patients.photo !='default.png'" [src]="contact.patients.photo"
+                                class="rounded-circle img-thumbnail" alt="profile-image" style="height: 100%;width:100%">
+                                <img *ngIf="contact.patients.photo==''" src="../../../../../assets/img/avat.jpg"
+                                class="rounded-circle img-thumbnail" alt="profile-image">
+                                <img *ngIf="contact.patients.photo =='default.png'" src="../../../../../assets/img/avat.jpg"
+                                class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                     
+                            <button type="button" class="btn btn-primary" data-toggle="modal" style="background: #3e4676;border-color:#3e4676;" (click)="getpatient(contact)" data-target="#exampleModal">
+                                {{contact.patients.name}} {{contact.patients.lastname}}
+                              </button>
+                         
+                   
+
+                             
+
+                        <table>
+                          <br>
+                            <tr>
+                                <td> <img src="../../../../../assets/img/email.ico" style="height: 30px;width: 30px;"
+                                        alt="">
+                                </td>
+
+                                <td> 
+                                    <a href = "mailto: {{contact.patients.email}}">{{contact.patients.email}}</a>
+                                </td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td>
+                                    <img src="../../../../../assets/img/whatsapp.ico" style="height: 30px;width: 30px;"
+                                        alt="">
+                                </td>
+                                <td>
+                                    <a href="https://api.whatsapp.com/send?phone={{contact.patients.tel}}">   {{contact.patients.tel}}</a>
+
+                                </td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td>
+                      
+                                </td>
+                                <td style="background-color: rgba(208, 216, 224, 0.329); width: 100%;">
+                          <h4>{{ 'AUTH.POID' | translate }}:  {{contact.patients.weight}} , {{ 'AUTH.SIZE' | translate }}:  {{contact.patients.size}} 
+                          </h4>      
+                          <h4>
+                            {{ 'AUTH.IMC' | translate }}={{(contact.patients.weight /((contact.patients.size/100)*(contact.patients.size/100))).toFixed(2)}}
+                          </h4>
+                       <!--    <h5 *ngIf="(contact.patients.weight /((contact.patients.size/100)*(contact.patients.size/100)))<18">Insuffisance pondérale</h5>
+                          <h5 *ngIf="18<(contact.patients.weight /((contact.patients.size/100)*(contact.patients.size/100)))<24">Poids normal</h5>
+                   
+                          <h5 *ngIf="(contact.patients.weight /((contact.patients.size/100)*(contact.patients.size/100)))>30">Obésité</h5> -->
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- <div class="mt-">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="mt-6">
+                                        <p>Télèphone</p>
+                                        <p class="mb-0 text-muted">{{contact.patients.tel}}</p>
+                                    </div>
+                                </div>
+                              
+                                <div class="col-6">
+                                    <div class="mt-6">
+                                        <p>Adresse</p>
+                                        <p class="mb-0 text-muted">{{contact.patients.adresse}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+
+            <!-- end col -->
+
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+
+        <!-- end row -->
+
+        <!-- end row -->
+        <div class="parent">
+    
+            <pagination-controls  previousLabel="{{ 'PAGINATION.PR' | translate }}"
+            nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="child" (pageChange)="p = $event"></pagination-controls>
+        
+          </div>
+        <!-- end row -->
+    </div>
+    <!-- container -->
+</div>
+<div  *ngIf="contacts==0" class="text-center mt-5" style="width: 100%;height: 100%;padding-bottom: 15%;">   
+  <h1 class="header-title" style="color: transparent;padding-bottom: 15%;font-size: 0px;">A</h1>
+  <h1 class="header-title" style="color: red;padding-bottom: 15%;">{{ 'FORMS.AUCUNN' | translate }} </h1>
+
+</div>
+</mat-card>
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ 'LISTPATIENT.STATUSFORMS' | translate }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{ 'LISTPATIENT.NAME' | translate }}</th>
+                    <th scope="col">{{ 'LISTPATIENT.DATECREATED' | translate }}</th>
+                    <th scope="col">{{ 'LISTPATIENT.ETAT' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <div *ngIf="!formsCompleted&&!formsInCompleted" class="text-center">
+                        <div class="spinner-border text-secondary" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
+         <!--          <tr *ngFor="let form of formsCompleted | paginate: { itemsPerPage: 7, currentPage: y } ;index as i ">
+                    <th  scope="row">{{i+1}}</th>
+                    <td >{{form.form.title}}</td>
+                    <td>{{form.form.created_date.slice(0,10)}}</td>
+                    <td><i class="fa fa-circle-check icon" style="cursor: pointer;" (click)="previewForm(form.form._id)"></i></td>
+                  </tr> -->
+                  <tr *ngFor="let form of formsInCompleted | paginate: { itemsPerPage: 7, currentPage: y }  ;index as k">
+                    <th  scope="row">{{k}}</th>
+                    <td >{{form.form.title}}</td>
+                    <td>{{form.form.created_date.slice(0,10)}}</td>
+                    <td> <i *ngIf="form.filledOn==null" class="fa fa-clock" style="color: red;"></i><i *ngIf="form.filledOn!=null" class="fa fa-circle-check icon" style="cursor: pointer;" (click)="previewForm(form.form._id)"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="parent">
+    
+          <pagination-controls  previousLabel="{{ 'PAGINATION.PR' | translate }}"
+          nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="etat" (pageChange)="y = $event"></pagination-controls>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
