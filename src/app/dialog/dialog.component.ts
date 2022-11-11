@@ -13,18 +13,25 @@ export class DialogComponent implements OnInit {
   sig: SignaturePad;
   imgPad;
   test = false;
+  type =""
   message: string = "Are you sure?"
   confirmButtonText = "Yes"
   cancelButtonText = "Cancel"
   name = 'Angular';
   fileToUpload: any;
   imageUrl: any;
+  namePro="";
+  lastname:""
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     public updateservice: UpdProfilPatientService,
     private dialogRef: MatDialogRef<DialogComponent>) {
-    /*   console.log(data) */
+   console.log(data)
     if (data) {
+      this.namePro=data.data.name+" ";
+      this.lastname=data.data.lastname
+      this.type=data.type;
+      console.log(this.type)
       this.message = data.message || this.message;
       if (data.buttonText) {
         this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;

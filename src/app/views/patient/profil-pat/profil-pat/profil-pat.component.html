@@ -122,7 +122,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Ssn</h6>
+                <h6 class="mb-0">N° ss</h6>
               </div>
               <div class="col-sm-9 text-secondary" style="font-weight: bold;font-size: 90%;">
                 {{test.ssn}} </div>
@@ -151,10 +151,10 @@
               <div class="col-sm-9 text-secondary" style="font-weight: bold;font-size: 90%;">
                 <div class="row">
                  
-                  <h5 *ngIf="(test.weight /((test.size/100)*(test.size/100)))<18"> {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} Insuffisance pondérale</h5>
-                  <h5 *ngIf="18<(test.weight /((test.size/100)*(test.size/100)))<24"> {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} Poids normal</h5>
+                  <h5 > {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} </h5>
+                  <!-- <h5 *ngIf="18<(test.weight /((test.size/100)*(test.size/100)))<24"> {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} Poids normal</h5> -->
      <!--              <h5 *ngIf="25<(test.weight /((test.size/100)*(test.size/100)))<29"> {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} Surpoids</h5> -->
-                  <h5 *ngIf="(test.weight /((test.size/100)*(test.size/100)))>30"> {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} Obésité</h5> </div>
+                  <!-- <h5 *ngIf="(test.weight /((test.size/100)*(test.size/100)))>30"> {{(test.weight /((test.size/100)*(test.size/100))).toFixed(2)}} Obésité</h5> --> </div>
                  
                 </div>
       

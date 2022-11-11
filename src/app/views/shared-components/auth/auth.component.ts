@@ -5,7 +5,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA ,MatDialog} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA ,MatDialog,MatDialogConfig} from '@angular/material/dialog';
 import { Validators } from '@angular/forms';
 import { MustMatch } from '../../helper/MustMatch.validator';
 import { RegisterService } from '../../services/register.service'
@@ -384,6 +384,8 @@ export class AuthComponent implements OnInit ,AfterViewInit {
     const dialogRef = this.dialog.open(DialogComponent,{
       data:{
         message: this.registerFormPro.value.title  ,
+        type: 'pro',
+        data:this.registerFormPro.value,
         buttonText: {
           cancel: 'Done'
         }
@@ -399,6 +401,8 @@ export class AuthComponent implements OnInit ,AfterViewInit {
       const dialogRef = this.dialog.open(DialogComponent,{
         data:{
           message: 'Patient',
+          type: 'pat',
+          data:this.registerFormPat.value,
           buttonText: {
             cancel: 'Done'
           }
@@ -466,7 +470,13 @@ export class AuthComponent implements OnInit ,AfterViewInit {
 
 
   }
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
 
+    this.dialog.open(AuthComponent, dialogConfig);
+
+
+  }
   onConfirm(): void {
     // Close the dialog, return true
     this.dialogRef.close(false);
@@ -480,6 +490,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
   // *********register professionnel****************//
 
   registerPro(info: any, type) {
+    
     if (type == 1) {
       this.AuthProfessionnel.registerProf(info)
         .subscribe(response => {

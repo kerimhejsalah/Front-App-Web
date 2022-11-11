@@ -50,7 +50,7 @@
                   </div>
                   
                   <div class="form-group col-md-6">
-                      <label for="inputEmail4">Gender</label>
+                      <label for="inputEmail4">{{ 'AUTH.GENDER' | translate }}</label>
                       <select name="" id=""  [ngClass]="{'form-control': true, 'error' : testGender}" [(ngModel)]="patient.gender">
                           <option [ngValue]="'homme'">{{ 'AUTH.SEXEH' | translate }}</option>
                           <option [ngValue]="'femme'">{{ 'AUTH.SEXEF' | translate }}</option>
@@ -61,13 +61,13 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputAddress">{{ 'AUTH.POID' | translate }}</label>
+                    <label for="inputAddress">{{ 'AUTH.POID' | translate }} </label>
                     <input [(ngModel)]="patient.weight" type="text"  [ngClass]="{'form-control': true, 'error' : testAdresse}" id="inputAddress" placeholder="{{ 'AUTH.POID' | translate }}">
                     <p class="text-danger" *ngIf="testAdresse"> Saisir votre addresse </p>
                 </div>
                 
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">{{ 'AUTH.SIZE' | translate }}</label>
+                    <label for="inputEmail4">{{ 'AUTH.SIZE' | translate }} </label>
                     <input [(ngModel)]="patient.size" type="text"  [ngClass]="{'form-control': true, 'error' : testAdresse}" id="inputAddress" placeholder="{{ 'AUTH.SIZE' | translate }}">
                     <p class="text-danger" *ngIf="testAdresse"> Saisir votre addresse </p>
                 </div>
@@ -75,20 +75,20 @@
               <div class="form-row">
                   <div class="form-group col-md-4">
                       <label for="inputCity">{{ 'AUTH.DATEN' | translate }}</label>
-                      <input [(ngModel)]="patient.birthday" type="date"  [ngClass]="{'form-control': true, 'error' : testBirthday}" id="inputCity">
+                      <input [(ngModel)]="patient.birthday" type="date"  [ngClass]="{'form-control': true, 'error' : testBirthday}" id="inputCity" >
                       <p class="text-danger" *ngIf="testBirthday"> Séléctionner la date de naissance </p>
              
                   </div>
                   <div class="form-group col-md-4">
                       <label for="inputTel">{{ 'AUTH.TELE' | translate }}</label>
-                      <input [(ngModel)]="patient.tel" type="text"  [ngClass]="{'form-control': true, 'error' : testTelephone}" id="inputTel">
+                      <input [(ngModel)]="patient.tel" type="text"  [ngClass]="{'form-control': true, 'error' : testTelephone}" id="inputTel" placeholder="{{ 'AUTH.TELE' | translate }}">
                       <p class="text-danger" *ngIf="testTelephone"> Télèphone invalide </p>
                 
                   </div>
                   <div class="form-group col-md-4">
-                      <label for="inputZip">ssn</label>
-                      <input [(ngModel)]="patient.ssn" type="text"  [ngClass]="{'form-control': true, 'error' : testSsn}" id="inputZip">
-                      <p class="text-danger" *ngIf="testSsn"> SSN invalide </p>
+                      <label for="inputZip">N° ss</label>
+                      <input [(ngModel)]="patient.ssn" type="text"  [ngClass]="{'form-control': true, 'error' : testSsn}" id="inputZip" placeholder="N° ss">
+                      <p class="text-danger" *ngIf="testSsn"> N invalide </p>
                
                   </div>
               </div>
