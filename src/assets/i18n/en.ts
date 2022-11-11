@@ -123,15 +123,17 @@ export const locale = {
             ACCEPTT:"Accept Terms & Conditions",
             PROF:"Professional  ",
             PAT:"Patient ",
-            POID:"Weight",
-            SIZE:"Size",
+            POID:"Weight (in kg)",
+            SIZE:"Size (in cm)",
             IMC:"IMC",
             SEXEH:"Male",
             SEXEF:"Female",
             TITRE:"Title" ,
             CS:" Confirm Signature ",
             CLEAR:"Clear",
-            ENR:"Register"
+            ENR:"Register",
+            MM:"MM/DD/YYYY",
+            GENDER:"Gender"
         },
         P:{
             MC:"GETTING TO KNOW US",
@@ -150,7 +152,14 @@ export const locale = {
         },
         DIALOG:{
             BN:"Hi",
-            PARA:`To help me develop a treatment that is best suited to your symptoms, please complete the following questionnaires by clicking on the appropriate button(s). These questions are about certain pelvic symptoms. When answering, consider the symptoms you experienced. You may object at any time without further justification. The information collected is strictly confidential. They will be the subject, unless you object justified, of a computer registration reserved for the use of your health professional. Your attending health professional is available to provide you with any information and any information necessary to your medical condition. Any doctor, appointed by you, can also examine your entire file. No information will be distributed to third parties (Law No. 78-17 of 06/01/1978 as amended).`
+            PARA:`To help me develop a treatment that is best suited to your symptoms, please complete the following questionnaires by clicking on the appropriate button(s). These questions are about certain pelvic symptoms. When answering, consider the symptoms you experienced. You may object at any time without further justification. The information collected is strictly confidential. They will be the subject, unless you object justified, of a computer registration reserved for the use of your health professional. Your attending health professional is available to provide you with any information and any information necessary to your medical condition. Any doctor, appointed by you, can also examine your entire file. No information will be distributed to third parties (Law No. 78-17 of 06/01/1978 as amended) .`,
+            PARAS:"I, the undersigned, ",
+            PARA1:`Declares that they freely and knowingly agree to complete the score forms and/or self-assessment scales, as part of a medical (or paramedical) consultation related to the pathology(s) for which I am consulting.
+            Commitment of the health professional: as a practitioner, he undertakes to have these questionnaires filled out according to ethical and ethical provisions and to ensure the confidentiality of the information collected.  
+            Patient’s freedom: consent can be withdrawn at any time without giving a reason and without incurring any responsibility or consequences. The answers to the questions are optional, the failure to answer does not have any consequences for the patient. 
+            Patient information: the patient has the possibility to obtain additional information about the questionnaires from the health professional. 
+            Confidentiality of information: all patient information will be kept anonymous and confidential.
+            Ethics and ethics: The health professional is committed to maintaining confidentiality and professional secrecy for all information concerning the patient .`
         }
     }     
 

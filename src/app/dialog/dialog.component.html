@@ -1,13 +1,21 @@
- 
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon"  >close</mat-icon>
+  </button>
 <mat-dialog-content style="width: 700px;height:100%">
    
-    <p style="font-weight: bold;font-size: 110%;">
-        {{ 'DIALOG.BN' | translate }} {{message}}, <br>
+    <p  style="font-weight: bold;font-size: 110%;">
+        {{ 'DIALOG.BN' | translate }} , <br>
     </p>
-        <hr>
-        <p >
-        {{ 'DIALOG.PARA' | translate }}
+ 
+    <hr >
+    <p *ngIf="type==='pat'" style="font-weight: bold;font-size: 110%;">
+        {{ 'DIALOG.PARA' | translate }}  <br>
     </p>
+      
+        <p *ngIf="type!=='pat'"  style="font-weight: bold;font-size: 110%;">
+            {{ 'DIALOG.PARAS' | translate }} {{namePro}}  {{lastname}},  {{ 'DIALOG.PARA1' | translate }}
+        </p>
+ 
  
      
         <!--   <button (click)="download()">Save image</button>

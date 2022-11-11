@@ -7,6 +7,7 @@ import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { MustMatch } from 'src/app/views/helper/MustMatch.validator';
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-add-patient',
   templateUrl: './add-patient.component.html',
@@ -34,7 +35,7 @@ export class AddPatientComponent implements OnInit {
     name: '',
     lastname: '',
     email: '',
-    birthday: '',
+    birthday: this.datepipe.transform(new Date(), 'yyyy-MM-dd'),
     ssn: '',
     adresse: '',
     tel: '',
@@ -64,9 +65,10 @@ export class AddPatientComponent implements OnInit {
     
   Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
   });  
-  constructor( private formBuilder: FormBuilder,  private AuthPatient: AuthPatientService,private snackBar:MatSnackBar, private DemandeService: DemandePatService,private router: Router) { }
+  constructor(public datepipe: DatePipe, private formBuilder: FormBuilder,  private AuthPatient: AuthPatientService,private snackBar:MatSnackBar, private DemandeService: DemandePatService,private router: Router) { }
 
   ngOnInit(): void {
+  
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     this.registerForm = this.formBuilder.group({

@@ -168,7 +168,7 @@
                           <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
                             <div *ngIf="f.birthday.errors.required">date de naissance obligatoire</div>
                           </div>
-                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-hint>{{ 'AUTH.MM' | translate }}</mat-hint>
                           <mat-datepicker-toggle matSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
                           <mat-datepicker #basicDatepicker></mat-datepicker>
                         </mat-form-field>
@@ -359,7 +359,7 @@
                           <div *ngIf="submitted && fPat.birthday.errors" class="invalid-feedback">
                             <div *ngIf="fPat.birthday.errors.required">date de naissance est obligatoire </div>
                           </div>
-                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-hint>{{ 'AUTH.MM' | translate }}</mat-hint>
                           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -496,7 +496,7 @@
                           required</div>
                       </div>
                       <div class="text-center"> 
-                        <button class="btn btn-primary mr-1" type="submit" [disabled]="acceptTerme">{{ 'AUTH.INSCRIRE' | translate }}</button>
+                        <button class="btn btn-primary mr-1" type="submit" [disabled]="acceptTerme" [mat-dialog-close]="true">{{ 'AUTH.INSCRIRE' | translate }}</button>
                      <!--    <button mat-raised-button color="primary" (click)="signInWithGoogle()"  type="submit" style="margin-right: 10px">
                           {{ 'AUTH.CG' | translate }}
                         </button> -->
