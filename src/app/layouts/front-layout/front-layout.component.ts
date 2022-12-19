@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit,NgZone } from '@angular/core';
+import { Component, OnDestroy, OnInit,NgZone, Output, EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogModel, AuthComponent } from '../../views/shared-components/auth/auth.component';
 import { AuthProfessionnelService } from '../../views/services/professionnel/auth-professionnel.service'
 import {TranslationService} from '../../translation.service';
+import { ListedialogComponent } from 'src/app/listedialog/listedialog.component';
 @Component({
   selector: 'app-front-layout',
   templateUrl: './front-layout.component.html',
@@ -10,7 +11,7 @@ import {TranslationService} from '../../translation.service';
 })
 export class FrontLayoutComponent implements OnInit, OnDestroy {
   result: any;
-
+  @Output() public sidenavToggle = new EventEmitter();
   status = false
   whois: boolean
   guser;
@@ -39,6 +40,21 @@ export class FrontLayoutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
   }
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
+  }
+  myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+  }
+}
+hello(){
+/*   console.log('tt'); */
+  //const dialogRef = this.dialog.open(ListedialogComponent, {restoreFocus: false});
+}
   onLangChange(currentLang: string) {
     localStorage.setItem('langauage',currentLang)
     this.translationService.useLang(currentLang);
@@ -105,4 +121,3 @@ export class FrontLayoutComponent implements OnInit, OnDestroy {
   }
 
 }
-

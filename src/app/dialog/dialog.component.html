@@ -1,7 +1,7 @@
 <button mat-icon-button class="close-button" [mat-dialog-close]="true">
     <mat-icon class="close-icon"  >close</mat-icon>
   </button>
-<mat-dialog-content style="width: 700px;height:100%">
+<mat-dialog-content style="height:100%" class="scroller" #scroller1>
    
     <p  style="font-weight: bold;font-size: 110%;">
         {{ 'DIALOG.BN' | translate }} , <br>
@@ -33,7 +33,7 @@
         <input  type="file" (change)="handleFileInput3($event.target.files)"  id="inputTag"/>
     </label>
         <img  *ngIf="imageUrl" [src]="imageUrl" class="coveredImage">
-        <canvas  #canvas width="600" height="250"></canvas>
+        <canvas  #canvas [width]="innerWidth" height="250"></canvas>
         
     </div>
  

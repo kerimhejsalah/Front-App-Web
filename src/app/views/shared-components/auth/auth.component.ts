@@ -222,7 +222,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
   loading: boolean = false;
   points = [];
   signatureImage;
-
+  public innerWidth: any;
   showImage(data) {
     this.signatureImage = data;
   }
@@ -271,6 +271,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
     }, 5000);
   }
   ngOnInit() {
+    this.innerWidth = window.innerWidth/3;
 /*      this.sig = new SignaturePad(this.canvas.nativeElement, {
       penColor: 'black',
     });  */ 
@@ -379,7 +380,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
   } */
 
   openAlertDialog() {
-    console.log( this.registerFormPro.value.title      );  
+   /*  console.log( this.registerFormPro.value.title      );   */
     if(this.selectedVal2=="Professionnel"){
     const dialogRef = this.dialog.open(DialogComponent,{
       data:{
@@ -465,7 +466,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
   }
   public onValChange2(val: any) {
     this.selectedVal2 = val;
-    console.log(this.selectedVal2)
+/*     console.log(this.selectedVal2) */
     this.status = (this.action + this.selectedVal2)
 
 

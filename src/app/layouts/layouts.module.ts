@@ -20,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [FrontLayoutComponent, PatientLayoutComponent, ProfessionnelLayoutComponent, HeaderComponent, SidenavComponent],
   imports: [
@@ -37,7 +38,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatSidenavModule,
     MatButtonModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class LayoutsModule { }

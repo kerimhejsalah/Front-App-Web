@@ -1,5 +1,10 @@
 <!-- ======= Top Baf ======= -->
 <div id="topbar" class="d-flex align-items-center fixed-top ">
+ <!--  <label>
+    <select name='langChoose' #langChoose [(ngModel)]='languageSelect' style="font-weight: bold;font-size: 110%;width: 190%;"  (change)="onLangChange(langChoose.value)">
+      <option *ngFor="let lang of languages" [value]="lang.key"  style="font-weight: bold;font-size: 110%;">{{lang.displayValue}}</option>
+    </select>
+  </label> -->
   <div class="container d-flex justify-content-between">
     <div class="contact-info d-flex align-items-center">
      <!--  <i class="bi bi-envelope"></i>
@@ -47,7 +52,9 @@
         <li><a class="nav-link scrollto active" routerLink="/" style="font-weight: bold;font-size: 110%;"> {{ 'HOMES.HOME' | translate }}</a></li>
         <li><a class="nav-link scrollto" routerLink="about" style="font-weight: bold;font-size: 110%;">{{ 'HOMES.APROP' | translate }}</a></li>
         <li><a class="nav-link scrollto" routerLink="contact" style="font-weight: bold;font-size: 110%;">{{ 'HOMES.CONTACT' | translate }}</a></li>
-
+        <li>  <div class="login-button" *ngIf="!status ;else Unlog">
+          <a (click)="openDialog()" class="appointment-btn scrollto" style="font-weight: bold;font-size: 100%;">{{ 'AUTH.IDENTIFIER' | translate }}</a>
+        </div></li>
         <!-- <li class="dropdown">
             <a href="#"
               ><span>Drop Down</span> <i class="bi bi-chevron-down"></i
@@ -55,22 +62,34 @@
           </li> -->
         <!-- <li><a class="nav-link scrollto" href="contact">Contact</a></li> -->
       </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
+ <!--      <li class=" mobile-nav-toggle">
+        <select name='langChoose' #langChoose [(ngModel)]='languageSelect' (change)="onLangChange(langChoose.value)">
+          <option *ngFor="let lang of languages" [value]="lang.key">{{lang.displayValue}}</option>
+        </select>
+      </li> -->
+      <li class="bi bi-list mobile-nav-toggle" (click)="hello()"  [matMenuTriggerFor]="menu" #menuTrigger>
+      
+        <mat-menu #menu="matMenu">
+          <a class="nav-link scrollto active" routerLink="/" style="font-weight: bold;font-size: 110%;"> {{ 'HOMES.HOME' | translate }}</a>
+          <a class="nav-link scrollto" routerLink="about" style="font-weight: bold;font-size: 110%;">{{ 'HOMES.APROP' | translate }}</a>
+          <a class="nav-link scrollto" routerLink="contact" style="font-weight: bold;font-size: 110%;">{{ 'HOMES.CONTACT' | translate }}</a>
+            <a *ngIf="!status ;else Unlog" (click)="openDialog()" class="nav-link scrollto" style="font-weight: bold;font-size: 100%;">{{ 'AUTH.IDENTIFIER' | translate }}</a>
+        </mat-menu>
+      </li>
+    
     </nav>
     <!-- .navbar -->
 
     <!-- <a (click)="openDialog()" data-toggle="modal" data-target=".login-register-form" class="appointment-btn scrollto"
         ><span class="d-none d-md-inline">SignIn / SignUp</span></a> -->
-    <div class="login-button" *ngIf="!status ;else Unlog">
-      <a (click)="openDialog()" class="appointment-btn scrollto" style="font-weight: bold;font-size: 100%;">{{ 'AUTH.IDENTIFIER' | translate }}</a>
-    </div>
+  
     
     <ng-template #Unlog>
       <div class="login-button" *ngIf="whois ;else PtientUer">
-        <a routerLink="./professionnel/profil" class="appointment-btn scrollto" style="font-weight: bold;font-size: 100%;">{{ 'HOMES.ESPACEPRO' | translate }}</a>
+        <a routerLink="./professionnel/profil" class="appointment-btn scrollto" style="font-weight: bold;font-size: 100%;color: white;">{{ 'HOMES.ESPACEPRO' | translate }}</a>
       </div>
       <ng-template #PtientUer>
-        <a routerLink="./patient/profil" class="appointment-btn scrollto" style="font-weight: bold;font-size: 100%;">{{ 'HOMES.ESPACEPATIENT' | translate }}</a>
+        <a routerLink="./patient/profil" class="appointment-btn scrollto" style="font-weight: bold;font-size: 100%;color: white;">{{ 'HOMES.ESPACEPATIENT' | translate }}</a>
 
       </ng-template>
 

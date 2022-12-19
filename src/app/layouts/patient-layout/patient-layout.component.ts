@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { transition, trigger, useAnimation } from "@angular/animations";
 import { Router } from '@angular/router';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { Patient } from 'src/app/views/interfaces/patient.interface';
@@ -7,12 +8,36 @@ import{UpdProfilPatientService} from '../../views/services/patient/upd-profil-pa
 import { LoaderService } from 'src/app/views/services/loader/loader.service';
 import {TranslationService} from '../../translation.service';
 import { DoctorsService } from 'src/app/views/services/patient/doctors.service';
+import { SidebarOpenAnimation, SidebarCloseAnimation } from "./animations";
+const animationParams = {
+  menuWidth: "250px",
+  animationStyle: "250ms ease"
+};
 @Component({
   selector: 'app-patient-layout',
   templateUrl: './patient-layout.component.html',
-  styleUrls: ['./patient-layout.component.css']
+  styleUrls: ['./patient-layout.component.scss'],
+  animations: [
+    trigger("sideMenu", [
+      transition(":enter", [
+        useAnimation(SidebarOpenAnimation, {
+          params: {
+            ...animationParams
+          }
+        })
+      ]),
+      transition(":leave", [
+        useAnimation(SidebarCloseAnimation, {
+          params: {
+            ...animationParams
+          }
+        })
+      ])
+    ])
+  ]
 })
 export class PatientLayoutComponent implements OnInit {
+  isOpen = false;
 fullname:Patient
 id:any
 patient:Patient

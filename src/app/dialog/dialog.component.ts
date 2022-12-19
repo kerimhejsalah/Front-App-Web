@@ -21,17 +21,17 @@ export class DialogComponent implements OnInit {
   fileToUpload: any;
   imageUrl: any;
   namePro="";
-  lastname:""
+  lastname:"";
+  public innerWidth: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     public updateservice: UpdProfilPatientService,
     private dialogRef: MatDialogRef<DialogComponent>) {
-   console.log(data)
     if (data) {
       this.namePro=data.data.name+" ";
       this.lastname=data.data.lastname
       this.type=data.type;
-      console.log(this.type)
+ /*      console.log(this.type) */
       this.message = data.message || this.message;
       if (data.buttonText) {
         this.confirmButtonText = data.buttonText.ok || this.confirmButtonText;
@@ -41,9 +41,13 @@ export class DialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth/3;
     this.sig = new SignaturePad(this.canvas.nativeElement, {
       penColor: 'black',
     });
+  }  ngAfterViewChecked() {
+
+ 
   }
   clear() {
     this.sig.clear();
@@ -82,7 +86,7 @@ export class DialogComponent implements OnInit {
     //Show image preview
 
     let reader = new FileReader();
-    console.log('hhh', reader); 
+  /*   console.log('hhh', reader);  */
     reader.onload = (event: any) => {
 
 
@@ -91,7 +95,7 @@ export class DialogComponent implements OnInit {
 
       this.updateservice.uploadImage(event.target.result).subscribe((result) => {
 
-        console.log('hhh', result);
+      /*   console.log('hhh', result); */
 
 
 

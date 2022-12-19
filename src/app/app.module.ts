@@ -54,6 +54,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { DialogComponent } from './dialog/dialog.component';
 import { CommonModule } from '@angular/common';
+import { ListedialogComponent } from './listedialog/listedialog.component';
 const CLIENT_ID = '338766570747-9ci8df39dn8h1n0nve8qpl1imoaqok6r.apps.googleusercontent.com';
 const googleLoginOptions = {
   scope: 'profile email',
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DetailsPatientComponent,
     DetailsProfessionnelComponent,
     DialogComponent,
+    ListedialogComponent,
   
  
  
