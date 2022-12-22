@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import {TranslateModule} from '@ngx-translate/core';
 import { YouTubePlayerModule } from "@angular/youtube-player";
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -14,6 +15,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
     MatTabsModule,
     TranslateModule,
     YouTubePlayerModule,
+    MatCardModule
   ]
 })
 export class HomeModule { }

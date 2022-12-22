@@ -13,7 +13,7 @@
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <ol class="breadcrumb">
 
-        <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;">{{ 'INVIT.INVIT' | translate }}</a></li>
+        <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;color: black;">{{ 'INVIT.INVIT' | translate }}</a></li>
       </ol>
     </nav>
     <!-- /Breadcrumb -->
@@ -95,15 +95,13 @@
         <div class="main-body">
 
 
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-           <!--    <li class="breadcrumb-item"><a>Patient</a></li>
-              <li class="breadcrumb-item"><a>Profile
-                </a></li> -->
-              <li class="breadcrumb-item active" aria-current="page"> {{ 'INVIT.DETAIL' | translate }}</li>
-            </ol>
-          </nav>
-
+        
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: black;"> {{ 'INVIT.DETAIL' | translate }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -116,7 +114,7 @@
                     </div>
                     <div class="mt-3">
 
-                      <h4> {{pat.name}} {{pat.lastname}}</h4>
+                      <h4 style="color: black;"> {{pat.name}} {{pat.lastname}}</h4>
 
 
                     </div>
@@ -130,7 +128,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">{{ 'PROFILE.NAME' | translate }}</h6>
+                      <h6 class="mb-0" style="color: black;">{{ 'PROFILE.NAME' | translate }}</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{pat.name}} {{pat.lastname}}
@@ -140,7 +138,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">{{ 'PROFILE.EMAIL' | translate }}</h6>
+                      <h6 class="mb-0" style="color: black;">{{ 'PROFILE.EMAIL' | translate }}</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{pat.email}}
@@ -151,7 +149,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">{{ 'PROFILE.TELE' | translate }}</h6>
+                      <h6 class="mb-0" style="color: black;">{{ 'PROFILE.TELE' | translate }}</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{pat.tel}}
@@ -160,7 +158,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">{{ 'PROFILE.BRITHDATE' | translate }}</h6>
+                      <h6 class="mb-0" style="color: black;">{{ 'PROFILE.BRITHDATE' | translate }}</h6>
                     </div>
                     <div class="col-sm-9 text-secondary" style="font-weight: bold;font-size: 90%;">
                       {{pat.birthday}}
@@ -171,7 +169,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">{{ 'PROFILE.ADRESS' | translate }}</h6>
+                      <h6 class="mb-0" style="color: black;">{{ 'PROFILE.ADRESS' | translate }}</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       {{pat.adresse}}

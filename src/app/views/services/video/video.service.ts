@@ -14,7 +14,7 @@ export class VideoService {
   getVideo(){
     const token=localStorage.getItem('token_Pro')
     const headers=new HttpHeaders().set('authorization','Bearer '+token)
-
+     console.log(`${this.URL}`+'urlvideo')
     return this.http.get<any>(`${this.URL}`+'urlvideo',{headers: headers})  
   
   }

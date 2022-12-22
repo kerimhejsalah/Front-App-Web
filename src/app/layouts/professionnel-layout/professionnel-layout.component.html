@@ -2,7 +2,9 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <ul  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <div   *ngIf="isOpen" [@sideMenu] style="background-color: #3e4676;">
+      <ul  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion  menu-item" id="accordionSidebar">
+ 
           <!-- Sidebar - Brand -->
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
               <div class="sidebar-brand-icon rotate-n-15">
@@ -131,6 +133,7 @@
      
 
       </ul>
+ </div>
       <!-- End of Sidebar -->
 
       <!-- Content Wrapper -->
@@ -144,11 +147,12 @@
                 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
             </div> -->
               <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-               
+           
                   <!-- Sidebar Toggle (Topbar) -->
-                  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                      <i class="fa fa-bars"></i>
-                  </button>
+                  <div class="menu-trigger" (click)="isOpen = !isOpen">
+                    <i *ngIf="!isOpen" class="gg-push-chevron-right-o"></i>
+                    <i *ngIf="isOpen" class="gg-push-chevron-left-o"></i>
+                  </div>
           
                   <!-- Topbar Search -->
                   <form
@@ -163,11 +167,12 @@
                           </div>
                       </div> -->
                   </form>
-
+                
                   <!-- Topbar Navbar -->
                   <ul class="navbar-nav ml-auto">
             
                       <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+               
                       <li class="nav-item dropdown no-arrow d-sm-none">
                           <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe,PipeTransform} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UpdProfilPatientService } from 'src/app/views/services/patient/upd-profil-patient.service';
 import { AuthProfessionnelService } from 'src/app/views/services/professionnel/auth-professionnel.service';

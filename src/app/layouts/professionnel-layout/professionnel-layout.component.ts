@@ -1,4 +1,5 @@
-import { Component, OnInit,Inject,ViewChild  } from '@angular/core';
+import { Component, OnInit,Inject,ViewChild,HostListener  } from '@angular/core';
+import { transition, trigger, useAnimation } from "@angular/animations";
 import { Router } from '@angular/router';
 import { Professionnel } from 'src/app/views/interfaces/professionnel.interface';
 import { AuthProfessionnelService } from 'src/app/views/services/professionnel/auth-professionnel.service';
@@ -13,12 +14,43 @@ import {TranslationService} from '../../translation.service';
 import { DOCUMENT } from "@angular/common";
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { SidebarOpenAnimation, SidebarCloseAnimation } from "./animations";
+const animationParams = {
+  menuWidth: "250px",
+  animationStyle: "250ms ease"
+};
 @Component({
   selector: 'app-professionnel-layout',
   templateUrl: './professionnel-layout.component.html',
-  styleUrls: ['./professionnel-layout.component.scss']
+  styleUrls: ['./professionnel-layout.component.scss'],
+  animations: [
+    trigger("sideMenu", [
+      transition(":enter", [
+        useAnimation(SidebarOpenAnimation, {
+          params: {
+            ...animationParams
+          }
+        })
+      ]),
+      transition(":leave", [
+        useAnimation(SidebarCloseAnimation, {
+          params: {
+            ...animationParams
+          }
+        })
+      ])
+    ])
+  ]
 })
 export class ProfessionnelLayoutComponent implements OnInit {
+  public innerWidth: any;
+  
+  isOpen = false;
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+   /*  console.log(this.innerWidth); */
+  }
   [x: string]: any;
   @ViewChild(MatSidenav) 
   sidenav! :MatSidenav
@@ -79,13 +111,16 @@ export class ProfessionnelLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+ 
     this.invservice.refreshNeeded$.subscribe((res)=>{
       this.listInvit()
     })
 
   }
   sideBarOpen = true;
-
+  toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle('active');
+  }
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
