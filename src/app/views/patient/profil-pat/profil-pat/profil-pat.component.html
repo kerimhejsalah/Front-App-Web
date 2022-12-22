@@ -4,7 +4,7 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="main-breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page" style="font-weight: bold;font-size: 90%;">{{ 'PROFILE.PROFIL' | translate }}</li>
+        <li class="breadcrumb-item active" aria-current="page" style="font-weight: bold;font-size: 90%;color: black;">{{ 'PROFILE.PROFIL' | translate }}</li>
       </ol>
     </nav>
     <!-- /Breadcrumb -->
@@ -18,7 +18,7 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <div class="profile-img"> <img style="height: 300px; width: 300px;"
+              <div class="profile-img"> <img style="height: 300px; width: 100%;"
                 [src]="test.photo"
                 alt="" />
                 <div class="file btn btn-lg btn-primary" style="font-weight: bold;font-size: 90%;">{{ 'PROFILE.PHOTOPROFIL' | translate }} <input type="file" name="file" (change)="handleFileInput($event.target.files)" #fileUpload/> </div>

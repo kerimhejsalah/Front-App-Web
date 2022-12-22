@@ -1,7 +1,7 @@
 <!-- <button type="button" class="btn btn-primary launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-rocket"></i> Pay Now
 </button> -->
 <!-- Modal -->
-<mat-card style="width: 95%;height: 900px;">
+<mat-card style="width: 95%">
 <div class="check" *ngIf="checked">
   <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true"*ngIf="nb=='0'" >
@@ -189,12 +189,12 @@
                 <tr class="bg-blue"
                   *ngFor="let contact of contacts | paginate: { itemsPerPage: 4, currentPage: p2 , id: 'p2'} ;index as j  ">
                  
-                  <td class="pt-2">
+                  <td class="pt-2" >
                     <!-- <img src={{prof.photo}} class="rounded-circle" alt=""> -->
                     <!-- <img class="img-profile rounded-circle" src="../../../assets/img/avat.jpg"> -->
-                    {{contact.patients.name}} {{contact.patients.lastname}}
+                  {{contact.patients.name}} {{contact.patients.lastname}}
                   </td>
-                  <td class="pt-3">{{contact.patients.email}}</td>
+                  <td class="pt-3" *ngIf="contact.patients.email">{{contact.patients.email}}</td>
                   <td><i  class="fa fa-paper-plane" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"
                       (click)="affectForm(contact.patients._id)"></i></td>
 

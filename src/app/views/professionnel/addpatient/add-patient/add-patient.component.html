@@ -5,22 +5,22 @@
 
 <div class="col-md-12" style="margin-top: -16px;">
  
-  <div class="card pt-3" style="height: 780px;">
+  <div class="card pt-3" >
       <div   class="card-body">
-        <nav aria-label="breadcrumb" class="main-breadcrumb">
+     <!--    <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a style="font-weight: bold;font-size: 90%;">{{ 'LISTPATIENT.CC' | translate }}</a></li>
             </ol>
-          </nav>
+          </nav> -->
         <br><br><br><br>
      
         <div class="card m-3">
-            <h5 class="card-header" style="color: black;">Angular Reactive Form Validation</h5>
+            <h5 class="card-header" style="color: black;">{{ 'LISTPATIENT.CC' | translate }}</h5>
             <div class="card-body">
               <form [formGroup]="registerFormPat" (ngSubmit)="onSubmit()">
                 <div class="form-row">
                   <div class="form-group col-5">
-                    <label>First Name</label>
+                    <label style="color: black;">{{ 'AUTH.NOM' | translate }}</label>
                     <input
                       type="text"
                       formControlName="name"
@@ -34,7 +34,7 @@
                     </div>
                   </div>
                   <div class="form-group col-5">
-                    <label>Last Name</label>
+                    <label style="color: black;">{{ 'AUTH.PRENOM' | translate }}</label>
                     <input
                       type="text"
                       formControlName="lastname"
@@ -46,7 +46,7 @@
                     </div>
                   </div>
                   <div class="form-group col">
-                    <label>Title</label>
+                    <label style="color: black;">Title</label>
                     <select
                       formControlName="gender"
                       class="form-control"
@@ -64,7 +64,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
+                  <label style="color: black;">{{ 'AUTH.EMAIL' | translate }}</label>
                   <input
                     type="text"
                     formControlName="email"
@@ -80,7 +80,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col">
-                    <label>Password</label>
+                    <label style="color: black;">{{ 'AUTH.MOTDEPASS' | translate }}</label>
                     <input
                       type="password"
                       formControlName="password"
@@ -92,7 +92,7 @@
                     </div>
                   </div>
                   <div class="form-group col">
-                    <label>adresse</label>
+                    <label style="color: black;">{{ 'AUTH.ADDRESS' | translate }}</label>
                     <input
                       type="text"
                       formControlName="adresse"
@@ -111,7 +111,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col">
-                    <label>Poid </label>
+                    <label style="color: black;">{{ 'AUTH.POID' | translate }} </label>
                     <input
                       type="number"
                       formControlName="weight"
@@ -123,7 +123,7 @@
                     </div>
                   </div>
                   <div class="form-group col">
-                    <label>Taile</label>
+                    <label style="color: black;">{{ 'AUTH.SIZE' | translate }}</label>
                     <input
                       type="number"
                       formControlName="size"
@@ -142,7 +142,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-5">
-                    <label>brithday</label>
+                    <label style="color: black;">{{ 'AUTH.DATEN' | translate }}</label>
                     <input
                       type="date"
                       formControlName="birthday"
@@ -156,7 +156,7 @@
                     </div>
                   </div>
                   <div class="form-group col-5">
-                    <label>tel</label>
+                    <label style="color: black;">{{ 'AUTH.TELE' | translate }}</label>
                     <input
                       type="number"
                       formControlName="tel"
@@ -168,7 +168,7 @@
                     </div>
                   </div>
                   <div class="form-group col">
-                    <label>ssn</label>
+                    <label style="color: black;">SSN</label>
                     <input
                     type="number"
                     formControlName="ssn"
@@ -196,9 +196,9 @@
                   </div>
                 </div> -->
                 <div class="text-center">
-                  <button class="btn btn-primary mr-1">Register</button>
+                  <button class="btn btn-primary mr-1">{{ 'AUTH.ENR' | translate }}</button>
                   <button class="btn btn-secondary" type="reset" (click)="onReset()">
-                    Cancel
+                    {{ 'AUTH.CLEAR' | translate }}
                   </button>
                 </div>
               </form>
