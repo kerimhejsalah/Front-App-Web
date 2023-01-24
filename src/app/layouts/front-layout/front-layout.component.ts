@@ -61,7 +61,7 @@ hello(){
   }
   afterSignUp(googleUser){
     this.guser=googleUser;
-    console.log(this.guser)
+   /*  console.log(this.guser) */
      }
   openDialog() {
     const dialogConfig = new MatDialogConfig();

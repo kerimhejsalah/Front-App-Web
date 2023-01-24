@@ -145,7 +145,13 @@
                   <!-- <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                       <i class="fa fa-bars"></i>
                   </button> -->
-
+                  <li class="mobile-nav-toggle" style="padding-left: 60%;">     
+                    <label>
+                      <select name='langChoose' #langChoose [(ngModel)]='languageSelect' style="font-weight: bold;font-size: 50%;width: 100%;"  (change)="onLangChange(langChoose.value)">
+                        <option *ngFor="let lang of languages" [value]="lang.key"  style="font-weight: bold;font-size: 110%;">{{lang.displayValue}}</option>
+                      </select>
+                    </label>
+                  </li>
                   <!-- Topbar Search --> 
                   <form  
                       class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">

@@ -19,6 +19,11 @@ export class AuthProfessionnelService {
   registerProf(body:any){
     return this.http.post(`${this.URL}`+'doctor/',body)
   }
+  forgotPassword(email){
+    /*  console.log("email",email) */
+      return this.http.post(`${this.URL}`+ 'doctor/forgot-password' , email);
+    
+    }
   emailIsExist(body:any){
     return this.http.post(`${this.URL}`+'doctor/isExist',body)
   }
@@ -27,7 +32,12 @@ export class AuthProfessionnelService {
 
 
   }
-
+  resetPassword(id, token , password){
+/* console.log(id,token) */
+    return this.http.post(`${this.URL}`+ 'doctor/reset-password/' + id + '/' + token , password);
+  
+  }
+  
   saveDataPro(token: any) {
 
     let decodeToken = this.helper.decodeToken(token)

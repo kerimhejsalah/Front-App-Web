@@ -91,9 +91,9 @@ export class MonFormulaireComponent implements OnInit {
     totalItems: this.collectionCustomPagination.count
   };
  this.invservice.myContactsPatient(this.id).subscribe(response =>{
-  console.log("response", response)
+/*   console.log("response", response) */
   this.contacts=response;
-  console.log("response", this.contacts)
+/*   console.log("response", this.contacts) */
 })
   }
 

@@ -58,7 +58,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
 
     this.updateservice.uploadImage(this.sig.toDataURL('image/svg+xml')).subscribe((result) => {
       this.imgPad = result
-      console.log(result)
+  /*     console.log(result) */
     })
   }
   messageError: any;
@@ -620,7 +620,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
   registerPat(infopat: any, type) {
 
     if (type == 1) {
-      console.log(" form", infopat)
+/*       console.log(" form", infopat) */
       this.AuthPatient.registerPatient(infopat).subscribe((response) => {
         if(localStorage.getItem("langauage")==='fr'){
           Swal.fire({
@@ -677,7 +677,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
         return;
       }
     } else {
-      console.log(infopat.value)
+   /*    console.log(infopat.value) */
       this.patient.name = infopat.value.name;
       this.patient.lastname = infopat.value.lastname;
       this.patient.email = infopat.value.email;
@@ -1116,7 +1116,7 @@ export class AuthComponent implements OnInit ,AfterViewInit {
   //Logion
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((response) => {
-      console.log("recccccccccccccccccsss", response)
+/*       console.log("recccccccccccccccccsss", response) */
 
 
     }, error => {

@@ -34,7 +34,7 @@ changeLang(lang){
 }
   updatePatient(id:any,body:any){
 
- console.log(id,body)
+/*  console.log(id,body) */
 /*  console.log(this.token) */
  const token=localStorage.getItem('token_Pat')
  const headers=new HttpHeaders().set('authorization','Bearer '+token)
@@ -63,7 +63,7 @@ changeLang(lang){
         return this.http.get<any>(`${this.url}`,{headers: headers}) 
       }
       getdossierById(id: any){
-        console.log(id)
+     /*    console.log(id) */
         const token=localStorage.getItem('token_Pro')
     
         const headers=new HttpHeaders().set('authorization','Bearer '+token)

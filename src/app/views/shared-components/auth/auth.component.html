@@ -51,7 +51,9 @@
                     <mat-icon (click)="myFunction()" matSuffix>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     <mat-error *ngIf="flogPro.password.invalid">Mot de passe requis </mat-error>
                   </mat-form-field>
-
+                 
+                    <a routerLink="/forgotpassword/prof" > {{ 'UPDATEMOT.MO' | translate }}</a>
+              
                   
                   <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                   
@@ -92,7 +94,7 @@
                     <mat-error *ngIf="flogPat.password.invalid">Mot de passe requis </mat-error>
                   </mat-form-field>
 
-
+                  <a routerLink="/forgotpassword/pat" >{{ 'UPDATEMOT.MO' | translate }}</a>
                   <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
                   
                     <button mat-raised-button color="primary" class="login-button" type="submit" style="width:40% ;">

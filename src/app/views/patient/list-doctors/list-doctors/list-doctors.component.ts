@@ -149,7 +149,7 @@ export class ListDoctorsComponent implements OnInit {
 
    this.invts.splice (indexC, 1);
    },error=>{
-console.log(error)
+/* console.log(error) */
      const Toast2 = Swal.mixin({
        toast: true,
        position: 'top-end',

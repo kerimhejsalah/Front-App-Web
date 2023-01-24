@@ -37,6 +37,7 @@
     "angularx-social-login": "^3.5.7",
     "g": "^2.0.1",
     "html-to-image": "^1.10.8",
+    "http-proxy-middleware": "^2.0.6",
     "install": "^0.13.0",
     "intl-tel-input": "^17.0.16",
     "ng2-search-filter": "^0.5.1",

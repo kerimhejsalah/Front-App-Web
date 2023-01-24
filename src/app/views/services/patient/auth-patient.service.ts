@@ -30,7 +30,16 @@ export class AuthPatientService {
 
 
     }
-
+    forgotPassword(email){
+    /*    console.log("email",email)  */
+        return this.http.post(`${this.URL}`+ 'patient/forgot-password' , email);
+      
+      }
+      resetPassword(id, token , password){
+      /*   console.log(id ,password) */
+            return this.http.post(`${this.URL}`+ 'patient/reset-password/' + id + '/' + token , password);
+          
+          }
     saveDataPat(token: any) {
  /*      console.log(token) */
       let decodeToken = this.helper.decodeToken(token)
