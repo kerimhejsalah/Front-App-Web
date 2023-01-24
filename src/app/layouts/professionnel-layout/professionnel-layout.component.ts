@@ -137,7 +137,7 @@ export class ProfessionnelLayoutComponent implements OnInit {
     })
   } */
   sideMenu(){
-    console.log(123)
+   /*  console.log(123) */
   }
   onLangChange(currentLang: string) {
     let htmlTag = this.document.getElementsByTagName("html")[0] as HTMLHtmlElement;
@@ -170,7 +170,7 @@ export class ProfessionnelLayoutComponent implements OnInit {
   }
 
   removetInvt(body:any){
-    console.log(body)
+   /*  console.log(body) */
      this.invservice.removeInvts(body).subscribe((res)=>{
      
       if(res){

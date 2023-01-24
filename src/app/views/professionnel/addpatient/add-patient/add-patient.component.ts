@@ -130,7 +130,7 @@ export class AddPatientComponent implements OnInit {
   createPatien(){
 
   this.AuthPatient.registerPatient(this.patient).subscribe((response) => {
-console.log(response);
+/* console.log(response); */
 this.dataAddInvit=response
  let obj ={
  
@@ -140,7 +140,7 @@ this.dataAddInvit=response
   dataPatient:this.patient
 
 }
-console.log(obj)
+/* console.log(obj) */
 this.DemandeService.AddCreatePatient(obj).subscribe((res)=>{
    if(res){
     this.router.navigate(['/professionnel/contact'])
@@ -220,7 +220,7 @@ this.DemandeService.AddCreatePatient(obj).subscribe((res)=>{
 
     onSubmit() {
         this.submitted = true;
-console.log(this.registerFormPat)
+/* console.log(this.registerFormPat) */
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;

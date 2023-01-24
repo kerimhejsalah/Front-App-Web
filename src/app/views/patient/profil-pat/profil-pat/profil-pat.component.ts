@@ -35,7 +35,7 @@ test:any
 
     this.updateservice.getPatient(this.id).subscribe((response)=>{
       this.test = response
-      console.log(response)
+  /*     console.log(response) */
     })
 
     }

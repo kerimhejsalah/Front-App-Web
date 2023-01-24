@@ -612,7 +612,7 @@ calcul(){
     console.log(this.scoreS,"this.scoreS")  */ 
  /*    console.log(this.tableReponse,"this.tableReponse")
     console.log(this.scoreS,"this.scoreS") */
-       console.log(this.scoreS,"this.scoreS")    
+     /*   console.log(this.scoreS,"this.scoreS")  */   
     let scoreCalcul =  eval(this.scoreS) ; 
     /*  console.log(scoreCalcul,"scoreCalcul")   */
     this.scorSend.push(scoreCalcul)  
@@ -632,7 +632,7 @@ calcul(){
     responses: this.tableReponse,
     score:this.scorSend
   }).subscribe((res)=>{
-    console.log('this is add', )
+  /*   console.log('this is add', ) */
       if(res){
         if(localStorage.getItem("langauage")=='fr'){
           this.route.navigate(['/patient/contacts'])

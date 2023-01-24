@@ -55,6 +55,8 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 import { DialogComponent } from './dialog/dialog.component';
 import { CommonModule } from '@angular/common';
 import { ListedialogComponent } from './listedialog/listedialog.component';
+import { ForgetpasswordComponent } from './views/shared-components/forgetpassword/forgetpassword.component';
+import { ResetComponent } from './views/shared-components/reset/reset.component';
 const CLIENT_ID = '338766570747-9ci8df39dn8h1n0nve8qpl1imoaqok6r.apps.googleusercontent.com';
 const googleLoginOptions = {
   scope: 'profile email',
@@ -75,6 +77,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DetailsProfessionnelComponent,
     DialogComponent,
     ListedialogComponent,
+    ForgetpasswordComponent,
+    ResetComponent,
   
  
  
@@ -150,6 +154,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     EditProfilProComponent
   ],
   providers: [MatDatepickerModule, DatePipe,
+    
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
     {
       provide: 'SocialAuthServiceConfig',
@@ -174,7 +179,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }
+    },
+    
 
 
   ],

@@ -12,6 +12,13 @@
       <!-- <i class="bi bi-phone"></i> +216 xxx xxx xxx -->
     </div>
 
+    <li class="mobile-nav-toggle">     
+      <label>
+        <select name='langChoose' #langChoose [(ngModel)]='languageSelect' style="font-weight: bold;font-size: 50%;width: 100%;"  (change)="onLangChange(langChoose.value)">
+          <option *ngFor="let lang of languages" [value]="lang.key"  style="font-weight: bold;font-size: 110%;">{{lang.displayValue}}</option>
+        </select>
+      </label>
+    </li>
     
     <div class="d-none d-lg-flex social-links align-items-center">
       <div style="">

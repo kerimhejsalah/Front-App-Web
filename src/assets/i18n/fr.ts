@@ -163,6 +163,12 @@ export const locale = {
             Confidentialité des informations : toutes les informations concernant les patients seront conservées de façon anonyme et confidentielle.
             Déontologie et éthique : le professionnel de Santé s’engage à préserver absolument la confidentialité et le secret professionnel pour toutes les informations concernant le patient . 
             `
+         },
+         UPDATEMOT:{
+            MP:"Modifier mot de passe",
+            SEND:"Envoyer",
+            P:"Lien de verification a été envoyer dans votre boite mail ",
+            MO:"Mot de passe oublié ?"
          }
     }
 }

@@ -104,7 +104,7 @@ export class EditProfilProComponent implements OnInit, OnDestroy {
       location.reload();
 
     }, (err: HttpErrorResponse) => {
-      console.log(err.message)
+   /*    console.log(err.message) */
 
     })
 

@@ -9,7 +9,8 @@ import { SideBarComponent } from './views/shared-components/side-bar/side-bar.co
 import {GuardProfessionnelGuard} from './views/guards/guard-professionnel.guard'
 import {GuardPatientGuard} from './views/guards/guard-patient.guard'
 import { EditProfilComponent } from './views/patient/edit-profil/edit-profil.component';
- 
+import { ForgetpasswordComponent } from './views/shared-components/forgetpassword/forgetpassword.component';
+import { ResetComponent } from './views/shared-components/reset/reset.component';
 const routes: Routes = [
 
 //******************* front-paths****************************//
@@ -51,6 +52,8 @@ const routes: Routes = [
 
   //******************* shared-paths****************************//
   {path:'auth',component:AuthComponent},
+  {path:'forgotpassword/:path',component:ForgetpasswordComponent},
+  {path:'reset/:type/:id/:token',component:ResetComponent},
   // {path:'professionnel',component:ProfessionnelLayoutComponent,canActivate:[GuardProfessionnelGuard]},
   // {path:'patient',component:PatientLayoutComponent},
   {path:'**',component:NotFoundComponent}

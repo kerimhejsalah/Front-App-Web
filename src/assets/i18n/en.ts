@@ -160,7 +160,13 @@ export const locale = {
             Patient information: the patient has the possibility to obtain additional information about the questionnaires from the health professional. 
             Confidentiality of information: all patient information will be kept anonymous and confidential.
             Ethics and ethics: The health professional is committed to maintaining confidentiality and professional secrecy for all information concerning the patient .`
-        }
+        },
+        UPDATEMOT:{
+            MP:"Modify Password",
+            SEND:"Send",
+            P:"Verification link has been sent to your mailbox ",
+            MO:"Forgot password ?"
+         }
     }     
 
     

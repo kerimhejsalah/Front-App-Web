@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       this.vidoView=true
       this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.dataUrlD2);
       this.urlSafeP= this.sanitizer.bypassSecurityTrustResourceUrl(this.dataUrlP2);
-     console.log(this.urlSafe,this.urlSafeP)
+   /*   console.log(this.urlSafe,this.urlSafeP) */
     }
  
        
