@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [AddPatientComponent],
   imports: [
@@ -15,7 +17,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     FormsModule,
     TranslateModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class AddpatientModule { }

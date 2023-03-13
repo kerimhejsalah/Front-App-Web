@@ -608,11 +608,11 @@ calcul(){
        }
       }
     })
-     /*   console.log( this.form.formMuti[fm]," this.form.formMuti[fm]")
-    console.log(this.scoreS,"this.scoreS")  */ 
- /*    console.log(this.tableReponse,"this.tableReponse")
-    console.log(this.scoreS,"this.scoreS") */
-     /*   console.log(this.scoreS,"this.scoreS")  */   
+        console.log( this.form.formMuti[fm]," this.form.formMuti[fm]")
+    console.log(this.scoreS,"this.scoreS")  
+    console.log(this.tableReponse,"this.tableReponse")
+    console.log(this.scoreS,"this.scoreS") 
+       console.log(this.scoreS,"this.scoreS")    
     let scoreCalcul =  eval(this.scoreS) ; 
     /*  console.log(scoreCalcul,"scoreCalcul")   */
     this.scorSend.push(scoreCalcul)  

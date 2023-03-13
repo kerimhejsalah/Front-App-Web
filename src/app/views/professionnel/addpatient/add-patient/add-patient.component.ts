@@ -66,16 +66,21 @@ export class AddPatientComponent implements OnInit {
   Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
   });  
   constructor(public datepipe: DatePipe, private formBuilder: FormBuilder,  private AuthPatient: AuthPatientService,private snackBar:MatSnackBar, private DemandeService: DemandePatService,private router: Router) { }
-
+ 
   ngOnInit(): void {
   
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     this.registerForm = this.formBuilder.group({
+      title: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+      acceptTerms: [false, Validators.requiredTrue]
+  }, {
+      validator: MustMatch('password', 'confirmPassword')
   });
   this.registerFormPat = this.formBuilder.group({
 
@@ -88,15 +93,12 @@ export class AddPatientComponent implements OnInit {
     gender: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
     password: ['', [Validators.required, this.checkPassword]],
-    confirmPassword: ['', [Validators.required, this.checkPassword]],
-    acceptTerms: [false, Validators.requiredTrue],
-    consontement: [false, Validators.requiredTrue],
-    mailConfirmation: [false, Validators.requiredTrue],
+    acceptTerms: [false ],
+    consontement: [false ],
+    mailConfirmation: [false ],
     weight: [false, Validators.required],
     size: [false, Validators.required],
-  }, {
-    validator: MustMatch('password', 'confirmPassword')
-  });
+  } );
   this.registerForm = this.formBuilder.group({
     title: ['', Validators.required],
     firstName: ['', Validators.required],
@@ -129,7 +131,7 @@ export class AddPatientComponent implements OnInit {
   // add patient 
   createPatien(){
 
-  this.AuthPatient.registerPatient(this.patient).subscribe((response) => {
+  this.AuthPatient.registerPatient(this.registerFormPat.value).subscribe((response) => {
 /* console.log(response); */
 this.dataAddInvit=response
  let obj ={
@@ -137,7 +139,7 @@ this.dataAddInvit=response
   doctor :localStorage.getItem('id_Pro'),
   patient:this.dataAddInvit._id,
   email:this.dataAddInvit.email,
-  dataPatient:this.patient
+  dataPatient:this.registerFormPat.value
 
 }
 /* console.log(obj) */
@@ -216,22 +218,26 @@ this.DemandeService.AddCreatePatient(obj).subscribe((res)=>{
     
     })
   }
-  get f() { return this.registerForm.controls; }
+  get f() { return this.registerFormPat.controls; }
 
     onSubmit() {
         this.submitted = true;
-/* console.log(this.registerFormPat) */
+  console.log(this.registerFormPat.value)  
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.registerFormPat.invalid) {
+          console.log(1)
             return;
-        }
+        } else{
+          console.log(this.patient,this.registerFormPat.value)
+          this.validEmail()}
+        
 
         // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+        /* alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerFormPat.value, null, 4)); */
     }
 
     onReset() {
         this.submitted = false;
-        this.registerForm.reset();
+        this.registerFormPat.reset();
     }
 }

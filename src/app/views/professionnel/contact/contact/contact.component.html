@@ -24,7 +24,7 @@
                   <span class="sr-only">Loading...</span>
                 </div>
               </div>
-            <div class="col-lg-4" *ngFor="let contact of contacts | paginate: { itemsPerPage: 3, currentPage: p } ">
+            <div class="col-lg-4" *ngFor="let contact of contacts | paginate: { itemsPerPage: 3, currentPage: p, id: 'p' } ">
                 <div class="text-center card-box">
                     <div class="member-card pt-3 pb-3">
                         <div class="thumb-lg member-thumb mx-auto"><img *ngIf="contact.patients.photo!=''&&contact.patients.photo !='default.png'" [src]="contact.patients.photo"
@@ -117,7 +117,7 @@
         <div class="parent">
     
             <pagination-controls  previousLabel="{{ 'PAGINATION.PR' | translate }}"
-            nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="child" (pageChange)="p = $event"></pagination-controls>
+            nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="child" (pageChange)="p = $event" id="p"></pagination-controls>
         
           </div>
         <!-- end row -->
@@ -165,7 +165,7 @@
                     <td>{{form.form.created_date.slice(0,10)}}</td>
                     <td><i class="fa fa-circle-check icon" style="cursor: pointer;" (click)="previewForm(form.form._id)"></i></td>
                   </tr> -->
-                  <tr *ngFor="let form of formsInCompleted | paginate: { itemsPerPage: 7, currentPage: y }  ;index as k">
+                  <tr *ngFor="let form of formsInCompleted | paginate: { itemsPerPage: 5, currentPage: y , id: 'y'}  ;index as k">
                     <th  scope="row">{{k}}</th>
                     <td >{{form.form.title}}</td>
                     <td>{{form.form.created_date.slice(0,10)}}</td>
@@ -177,7 +177,7 @@
         <div class="parent">
     
           <pagination-controls  previousLabel="{{ 'PAGINATION.PR' | translate }}"
-          nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="etat" (pageChange)="y = $event"></pagination-controls>
+          nextLabel="{{ 'PAGINATION.NEXT' | translate }}" class="etat" (pageChange)="y = $event" id="y"></pagination-controls>
       
         </div>
       </div>

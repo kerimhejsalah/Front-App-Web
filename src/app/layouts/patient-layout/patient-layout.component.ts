@@ -60,8 +60,8 @@ dataPatient={
 languageSelect:any;
 currentLang = 'fr';
 languages=[
-  {key :'fr',displayValue:'Français'},
-  {key :'en',displayValue:'English'},
+  {key :'fr',displayValue:'English'},
+  {key :'en',displayValue:'Français'},
 
 
 ]

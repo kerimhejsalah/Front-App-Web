@@ -198,9 +198,9 @@ if(res._id){
   var indexE = this.listPatient.findIndex(s => s._id === id);
  
    this.listPatient.splice (indexE, 1);  
-   this.invservice.getListEnvoi(this.id).subscribe((res)=>{
+ /*   this.invservice.getListEnvoi(this.id).subscribe((res)=>{
 
-  })
+  }) */
 }else{
   const Toast = Swal.mixin({
     toast: true,

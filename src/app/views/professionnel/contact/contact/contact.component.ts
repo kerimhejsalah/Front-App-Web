@@ -14,6 +14,7 @@ export class ContactComponent implements OnInit {
   contacts:any
   p:number;
   y:number;
+  p2:number;
   i=1;
   formsCompleted:any;
   formsInCompleted:any;

@@ -86,8 +86,8 @@ export class ProfessionnelLayoutComponent implements OnInit {
   currentLang = 'fr';
   languageSelect:any;
   languages=[
-    {key :'fr',displayValue:'Français'},
-    {key :'en',displayValue:'English'},
+    {key :'fr',displayValue:'English'},
+    {key :'en',displayValue:'Français'},
 
 
   ]
@@ -157,11 +157,11 @@ export class ProfessionnelLayoutComponent implements OnInit {
  
   } */
   listInvit(){
-    this.invservice.getListEnvoi(this.id).subscribe((res)=>{
+/*     this.invservice.getListEnvoi(this.id).subscribe((res)=>{
       if(res){
         this.invts=res.res
       }
-    })
+    }) */
     
   }
   logout(){
