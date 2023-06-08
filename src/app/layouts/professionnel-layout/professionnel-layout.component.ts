@@ -86,8 +86,8 @@ export class ProfessionnelLayoutComponent implements OnInit {
   currentLang = 'fr';
   languageSelect:any;
   languages=[
-    {key :'fr',displayValue:'English'},
-    {key :'en',displayValue:'Français'},
+    {key :'fr',displayValue:'Français'},
+    {key :'en',displayValue:'English'},
 
 
   ]

@@ -79,13 +79,16 @@ export const locale = {
         },
         SIDEMENU:{
          MC:"Mon compte",
+         MCE:"Contacts etud",
          LP:"Liste des patients",
          MP:"Mes Patients",
          MF:"Mes formulaires",
+         MFE:"Mes formulaires etuds",
          DEC:"Déconnexion",
          LI:"Liste des invitations",
          CO:"Contacts"  ,
          DO:"Dossiers",
+         DOE:"Dossiers etud",
          AP:"Ajouter patient"
         },
         AFFECTFORMS:{

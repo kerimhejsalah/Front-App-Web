@@ -47,25 +47,9 @@
                        <h3 class="card-title mb-0">{{dossier.name.slice(0,50)}}</h3>
                        <h3 class="card-title mb-0">{{dossier.name.slice(0,50)}}</h3>
                     </div> -->
-                    <div class="row">
-                        <button class="col-sm" [routerLink]="['/professionnel/detaildossier', dossier._id  ]"  style="   cursor: pointer;background: transparent;border-color: transparent;">
-                            <h6 class="card-title">{{dossier.name.slice(0,20)}}</h6>  
-                        </button>
-                        <div class="col-sm">
-                   
-                        </div>
-                     <!--    <div *ngIf="spinerLoading" class="spinner-border" role="status">
-                            <span class="sr-only">Loading...</span>
-                          </div> -->
-                     <!--      <div  class="col-sm">
-                          <div *ngIf="spinerLoading"  class="spinner-border spinner-border-sm" role="status">
-                            <span class="sr-only">Loading...</span>
-                          </div>
-                          <mat-icon *ngIf="!spinerLoading" (click)="openModal(dossier._id);getIdDossier(dossier._id)"  style="padding-top: 25%; cursor: pointer;">playlist_play</mat-icon>
-
-                        </div> -->
-                     
-                      </div>
+                    <button class="col-sm" [routerLink]="['/professionnel/detaildossier', dossier._id  ]"  style="   cursor: pointer;background: transparent;border-color: transparent;">
+                      <h6 class="card-title">{{dossier.name }}</h6>  
+                  </button>
                
             
             </div>

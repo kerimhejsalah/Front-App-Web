@@ -17,8 +17,9 @@ export class FrontLayoutComponent implements OnInit, OnDestroy {
   guser;
   currentLang = 'fr';
   languages=[
-    {key :'en',displayValue:'Français'},
-    {key :'fr',displayValue:'English'},
+    {key :'fr',displayValue:'Français'},
+    {key :'en',displayValue:'English'},
+ 
 
 
 
@@ -59,7 +60,7 @@ hello(){
   onLangChange(currentLang: string) {
     localStorage.setItem('langauage',currentLang)
     this.translationService.useLang(currentLang);
-    console.log("currentLang",currentLang)
+    //console.log("currentLang",currentLang)
   }
   afterSignUp(googleUser){
     this.guser=googleUser;

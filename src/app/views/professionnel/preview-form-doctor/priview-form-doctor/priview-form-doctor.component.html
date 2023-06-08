@@ -30,6 +30,8 @@
 
 
 </div> -->
+<!--The content below is only a placeholder and can be replaced.-->
+
 <div *ngIf="tabRep">
   <div class="col-12 col-md-12 col-lg-12 mx-auto">
     <div class="card">
@@ -41,7 +43,7 @@
   </div>
   
   <ul class="list">
-    <cdk-virtual-scroll-viewport  style="height: 700px" itemSize="90" >
+    <cdk-virtual-scroll-viewport  style="height: 1500px" itemSize="90" >
       <div class="col-12 col-md-12 col-lg-12 mx-auto">
         <div class="card" *ngIf="tabRep.form_description" >
               <div *ngIf="tabRep" class="card-header">
@@ -268,11 +270,26 @@
       </ng-container>
     </cdk-virtual-scroll-viewport>
   </ul>
-  <div *ngFor="let item of tabRep.score;let q = index;" class="col-sm-3 col-xl-12  text-center">
-    <div class="col-sm-3 col-xl-12  text-center">
-                      
-      <div *ngIf="tabScore[q]" style=" background-color: #ddffdd;"><h1 style="cursor: pointer;color: black;"  matTooltip="{{tabScore[q].formulCalcul}}" matTooltipPosition="above">Score  : {{item.toFixed(2)}} </h1></div>
+  
 
+
+
+
+
+
+  <div *ngFor="let item of tabRep.score;let q = index;" class="col-sm-3 col-xl-12  text-center"> 
+    <div class="container">
+   <!--    <div class="semi-donut margin" 
+     style="--percentage : {{item.toFixed(2)/2}}; --fill: #FF3D00 ;">
+ {{item.toFixed(2)}}
+</div> -->
+<div role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="--value: {{item.toFixed(2)}}"></div>
+    </div>
+ <br>
+    <div class="col-sm-3 col-xl-12  text-center" >
+    
+      <div style=" background-color: #ddffdd;"><h1 style="cursor: pointer;color: black;"  matTooltip="{{tabScore[q].formulCalcul}}" matTooltipPosition="above">Score  : {{item.toFixed(2)}} </h1></div>
+      
 </div>     
  <!--    <div style=" background-color: #ddffdd;"  >  <div class="row">
       <div class="col col-lg-2 text-center">

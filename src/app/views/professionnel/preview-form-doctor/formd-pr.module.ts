@@ -20,7 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FormdPrRoutingModule,
     ScrollingModule,
     TranslateModule,
-    MatTooltipModule
+    MatTooltipModule,
   ]
 })
 export class FormdPrModule { }

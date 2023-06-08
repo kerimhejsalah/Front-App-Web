@@ -69,3 +69,7 @@ h3{
     width: 10px; 
     height: 10px;
 } */
+h5{
+    font-weight: 500;
+    margin-top: 12px;
+}

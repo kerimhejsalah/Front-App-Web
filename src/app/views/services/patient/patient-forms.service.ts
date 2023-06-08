@@ -21,6 +21,7 @@ export class PatientFormsService {
     const token=localStorage.getItem('token_Pat')
     const headers=new HttpHeaders().set('authorization','Bearer '+token)
   /* console.log(id,body,"headers",token) */
+  console.log(`${this.URL}`+'affect/getallform/')
     return this.http.get<any>(`${this.URL}`+'affect/getallform/'+id+'/'+body,{headers: headers}).pipe(
     tap(() =>  {
       this._refreshNeeded$.next();

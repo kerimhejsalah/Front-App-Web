@@ -82,12 +82,37 @@
                   </div>
               </div> -->
           </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" routerLink="dossieretud" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="bi bi-folder2 fa-lg"></i>
+                <span style="font-weight: bold;font-size: 90%;">{{ 'SIDEMENU.DOE' | translate }}</span>
+            </a>
+            <!-- <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" >Colors</a>
+                    <a class="collapse-item" href="utilities-border.html">Borders</a>
+                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                </div>
+            </div> -->
+        </li>
 
           <li class="nav-item">
             <a class="nav-link collapsed" routerLink="contact" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-user-injured"></i>
                 <span style="font-weight: bold;font-size: 90%;">{{ 'SIDEMENU.MP' | translate }}</span>
+            </a>
+         
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLink="contactetud" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-user-injured"></i>
+                <span style="font-weight: bold;font-size: 90%;">{{ 'SIDEMENU.MP' | translate }} d'études</span>
             </a>
          
         </li>
@@ -107,7 +132,14 @@
             </a>
          
         </li>
-      
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLink="formulairesetud" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fa fa-align-left" aria-hidden="true"></i>
+                <span style="font-weight: bold;font-size: 90%;">{{ 'SIDEMENU.MFE' | translate }}</span>
+            </a>
+         
+        </li>
   <!--       <li class="nav-item">
             <a class="nav-link collapsed" routerLink="Abonnement" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
@@ -167,13 +199,13 @@
                           </div>
                       </div> -->
                   </form>
-                  <li class="mobile-nav-toggle" style="padding-left: 60%;">     
+              <!--     <li class="mobile-nav-toggle" style="padding-left: 60%;">     
                     <label>
                       <select name='langChoose' #langChoose [(ngModel)]='languageSelect' style="font-weight: bold;font-size: 50%;width: 100%;"  (change)="onLangChange(langChoose.value)">
                         <option *ngFor="let lang of languages" [value]="lang.key"  style="font-weight: bold;font-size: 110%;">{{lang.displayValue}}</option>
                       </select>
                     </label>
-                  </li>
+                  </li> -->
                            
                   <!-- Topbar Navbar -->
                   <ul class="navbar-nav ml-auto">

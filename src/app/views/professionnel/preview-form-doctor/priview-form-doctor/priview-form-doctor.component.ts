@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PatientFormsService } from 'src/app/views/services/patient/patient-forms.service';
 import { Options } from 'ng5-slider/options';
